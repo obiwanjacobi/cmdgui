@@ -1,0 +1,37 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.TextControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             xmlns:val="clr-namespace:CannedBytes.CommandLineGui.Model.Validation"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="200"
+             ToolTip="{Binding Path=Description, Mode=OneTime}">
+
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Name="TextLabel" Content="{Binding Path=Name, Mode=OneTime}"/>
+
+        <Image Name="ValidationImage" HorizontalAlignment="Right"
+               Validation.ValidationAdornerSiteFor="{Binding ElementName=Text}"
+               Source="/CannedBytes.CommandLineGui;component/Resources/Alert.png"
+               Style="{StaticResource ValidationImage}">
+        </Image>
+
+        <TextBox Name="Text" Grid.Column="1" TextChanged="Text_TextChanged">
+            <TextBox.Text>
+                <Binding Path="Value.Value" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged"/>
+            </TextBox.Text>
+        </TextBox>
+
+    </Grid>
+</ctrl:GuiControl>

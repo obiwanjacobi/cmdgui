@@ -1,0 +1,780 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
+  <executable name="StsAdmin12" helpCmd="/?" helpUrl="http://technet.microsoft.com/en-us/library/cc261956(office.12).aspx">
+    <arguments>
+      <!-- general arguments -->
+      <argument name="operation" format="-o {0}" multiplicity="ExactlyOne"/>
+      <!-- Site Management -->
+      <!-- CreateSite operation -->
+
+    </arguments>
+
+    <gui name="STS-Admin 2007">
+      <control type="Options"/>
+
+      <!--<bindingGroup name="Backup and Restore">
+        <control type="Options"/>
+
+        <bindingGroup name="Restore">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Backup">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Backup History">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Register Wss Writer">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Unregister Wss Writer">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>-->
+
+      <!--<bindingGroup name="Database">
+        <control type="Options"/>
+
+        <bindingGroup name="Add Content DB">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Content DB">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Content DBs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Merge Content DBs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Database Repair">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Prepare To Move">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Config DB">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Config DB">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>-->
+
+      <bindingGroup name="Enterprise Content Management">
+        <control type="Options"/>
+
+        <bindingGroup name="Enumerate Deployments">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Edit Content Deployment Path">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Content Deployment Schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Run Content Deployment Job">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Hold Schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Policy schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Records Repository Schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Search and Process Schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Variations Fixup Tool">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Excel Calulation Services">
+        <control type="Options"/>
+
+        <bindingGroup name="Add File Trusted Location">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove File Trusted Location">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Safe Data Provider">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove Safe Data Provider">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Trusted Data Connection Library">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove Trusted Data Connection Library">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add User-defined Function">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set External Data">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Load Balancing">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Memory Utilization">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Security">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Session Management">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Workbook Cache">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Features and Solutions">
+        <control type="Options"/>
+
+        <bindingGroup name="Scan for Features">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Install Feature">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Uninstall Feature">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Activate Feature">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Deactivate Feature">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Solutions">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Display Solution">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Retract Solution">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Synchronize Solution">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Upgrade Solution">
+          <control type="Display"/>
+        </bindingGroup>
+        <bindingGroup name="Add Solution">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Solution">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove Solution Deployement Lock">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Deploy WP Pack">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Templates">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Retract WP Pack">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Template">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Template">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate WP Packs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add WP Pack">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Deploy WP Pack">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete WP Pack">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Copy Application Bin Content">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Forms Services">
+        <control type="Options"/>
+
+        <bindingGroup name="Enumerate Data Connection Files">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Data Connection File Dependants">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Data Connection File">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove Datat Connection File">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Datat Connection File Property">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Data Connection File Property">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Exempt User Agents">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Exempt User Agent">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove Exempt User Agent">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Allow User Form Web Service Proxy">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Allow Web Service Proxy">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Form Templates">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Form Template Property">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Form Template Property">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Reconvert All Form Templates">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Verify Form Template">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Form Template Quiesce Status">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Quiesce Form Template">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Unquiesce Form Template">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Quiesce Farm">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Unquiesce Farm">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Quiesce Farm Status">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="General">
+        <control type="Options"/>
+
+        <bindingGroup name="Enumerate Alternate Domains">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Alternate Domain">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Alternate Domain">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Zone Urls">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add Zone Url">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Zone Url">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enable SSC">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Disable SSC">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Email">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Admin Port">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Admin Port">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Remove DR Service">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Sync">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Trim Audit Log">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Update Alert Templates">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Import and Export">
+        <control type="Options"/>
+
+        <bindingGroup name="Import">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Export">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Installation">
+        <control type="Options"/>
+
+        <bindingGroup name="Create Admin VS">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Admin VS">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Extend VS">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Unextend VS">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Extend VS in Web Farm">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Provision Service">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Rename Server">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Logging and Events">
+        <control type="Options"/>
+
+        <bindingGroup name="List Logging Levels">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Logging Level">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Manage Permission Policy Level">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Search">
+        <control type="Options"/>
+
+        <bindingGroup name="Search">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Search Diacritic Sensitive">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Search Setting">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Search Setting">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="List Registered Security Trimmers">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Register Security Trimmer">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Unregister Security Trimmer">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="List Query Processor Options">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Query Processor Options">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Security">
+        <control type="Options"/>
+
+        <bindingGroup name="Add Permission Policy">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Change Permission Policy">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Permission Policy">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Users">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Add User">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete User">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Roles">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="User Role">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Authentication">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Update Account Password">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Groups">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create Group">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Group">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Execute Admin Service Job">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Site User Account Directory Path">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Site User Account Directory Path">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Update Farm Credentials">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Time Zone Move">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Shared Services Provider">
+        <control type="Options"/>
+
+        <bindingGroup name="Enumerate SSPs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Default SSP">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create SSP">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Edit SSP">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete SSP">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Restore SSP">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate SSP Timer Jobs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete SSP Timer Job">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Services">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Share Web Service Authentication">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set SSP Port">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Site Managemenr">
+        <control type="Options"/>
+
+        <bindingGroup name="Site Owner">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Rename Site">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Sites">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create Site">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create Site in New DB">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Site">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Get Site Lock">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Site Lock">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate All Webs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enumerate Sub Webs">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Rename Web">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create Web">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Web">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Force Delete List">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Refresh DMS">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Refresh Site DMS">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Updgrade and Migration">
+        <control type="Options"/>
+
+        <bindingGroup name="Edit Cms Migration Profile">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Run Cms Migration Profile">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Create Cms Migration Profile">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Delete Cms Migration Profile">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Enable Cms Url Redirect">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Local Upgrade Status">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Pre-upgrade Check">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Upgrade">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Migrate User">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Upgrade Target Web Application">
+          <control type="Display"/>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Workflow Management">
+        <control type="Options"/>
+
+        <bindingGroup name="Set Bulk Workflow Task Processing Schedule">
+          <control type="Display"/>
+        </bindingGroup>
+
+        <bindingGroup name="Set Workflow Config">
+          <control type="Display"/>
+        </bindingGroup>
+      </bindingGroup>
+
+    </gui>
+  </executable>
+</executables>

@@ -1,0 +1,53 @@
+﻿<UserControl x:Class="CannedBytes.CommandLineGui.UI.SelectSchema" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <RadioButton Name="NewSchemaOption" Content="New Schema" IsChecked="{Binding Path=IsNewSchema, Mode=TwoWay}"/>
+        <TextBox Name="NewSchemaPath" Grid.Column="1"
+                 Text="{Binding Path=SchemaPath, Mode=TwoWay}"
+                 TextChanged="NewSchemaPath_TextChanged"/>
+        <Button Name="BrowseForSchema" Grid.Column="2" Click="BrowseForSchema_Click">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Export File.png" />
+        </Button>
+
+        <RadioButton Name="LoadedSchemaOption" Content="Loaded Schemas" Grid.Row="1"/>
+        <ListBox Grid.Column="1" Grid.Row="1"
+                 ItemsSource="{Binding Path=ExecutableNames, Mode=OneTime}"
+                 SelectedItem="{Binding Path=Selected, Mode=TwoWay}"
+                 SelectionChanged="ListBox_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Border BorderThickness="1" CornerRadius="8" BorderBrush="DarkGray" Margin="4,4,4,4" Background="Transparent">
+                        <StackPanel Orientation="Vertical" Margin="2,2,10,2">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="{Binding Path=ExecutableName, Mode=OneTime}" Margin="2,2,2,2" />
+                                <TextBlock Text="{Binding Path=ScreenName, Mode=OneTime}" Margin="22,2,2,2" />
+                            </StackPanel>
+                            <TextBlock Text="{Binding Path=SchemaFilePath, Mode=OneTime}" Margin="2,2,2,2" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <Label Content="Create New File" Grid.Column="1" Grid.Row="2" HorizontalAlignment="Right" />
+        <Button Name="OK" Grid.Column="2" Grid.Row="2" Click="OK_Click">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Confirm.png" />
+        </Button>
+    </Grid>
+</UserControl>

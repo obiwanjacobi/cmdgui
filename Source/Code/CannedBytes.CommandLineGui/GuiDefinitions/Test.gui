@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
+  <executable name="Echo" helpCmd="/?"
+    location="D:\Projects\Personal\CannedBytes\Source\CannedBytes.CommandLineGui\CannedBytes.EchoCommandLineConsole\bin\Release\CannedBytes.EchoCommandLineConsole.exe">
+    <arguments>
+      <argument name="bool" format="{0}" multiplicity="ExactlyOne" ordinal="2" description="Bool value"/>
+      <argument name="integer" format="{0}" multiplicity="OneOrMore" ordinal="2" description="Integer value"/>
+      <argument name="string" format="&quot;{0}&quot;" multiplicity="OneOrMore" ordinal="2" description="String value"/>
+      <argument name="multi" format="&quot;{0}&quot;,{1},{2}" multiplicity="ZeroOrOne" ordinal="0" description="Multiple values"/>
+    </arguments>
+    <gui name="Test">
+      <control type="Options"/>
+
+      <binding name="No Logo">
+        <control type="Check"/>
+        <bindTo argument="bool"/>
+        <value>True</value>
+      </binding>
+
+      <bindingGroup name="Modus 1" description="Where do we see this description?">
+        <control type="Display"/>
+
+        <binding name="Options">
+          <control type="Options"/>
+          <bindTo argument="integer" />
+          <value key="a">Say A</value>
+          <value key="b">Say B</value>
+          <value key="c">Say C</value>
+          <value key="d">Say D</value>
+          <value key="e">Say E</value>
+        </binding>
+      </bindingGroup>
+    </gui>
+    <exitCodes>
+      <exitCode value="0" description="Success"/>
+    </exitCodes>
+  </executable>
+</executables>

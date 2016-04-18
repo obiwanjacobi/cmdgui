@@ -1,0 +1,106 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:model="clr-namespace:CannedBytes.CommandLineGui.Model"
+                    xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+                    xmlns:ui="clr-namespace:CannedBytes.CommandLineGui.UI"
+                    xmlns:app="clr-namespace:CannedBytes.CommandLineGui"
+                    >
+
+    <!-- DataTemplates for controls that have a specific model type associated with them. -->
+
+    <DataTemplate DataType="{x:Type app:GuiDocument}">
+        <ui:GuiDocumentPage />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:DisplayGroupBindingModel}">
+        <ctrl:GroupDisplayControl />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:OptionsGroupBindingModel}">
+        <ctrl:GroupOptionsControl />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:OptionsValueBindingModel}">
+        <ctrl:OptionsControl />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:MultiValueBindingModel}">
+        <ctrl:MultiValueControl />
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type model:RepeatingValueBindingModel}">
+        <ctrl:RepeaterControl />
+    </DataTemplate>
+
+    <!-- Named DataTemplates for controls that have no specific model type associated with them. -->
+
+    <DataTemplate x:Key="GroupOptionsControlTemplate">
+        <ctrl:GroupOptionsControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="GroupOptionsContainerControlTemplate">
+        <ctrl:GroupOptionsContainerControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="CheckControlTemplate">
+        <ctrl:CheckControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="FolderControlTemplate">
+        <ctrl:FolderControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="InputFileControlTemplate">
+        <ctrl:InputFileControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="IntegerControlTemplate">
+        <ctrl:IntegerControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="LiteralControlTemplate">
+        <ctrl:LiteralControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="MultilineControlTemplate">
+        <ctrl:MultilineControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="NumberControlTemplate">
+        <ctrl:NumberControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="OutputFileControlTemplate">
+        <ctrl:OutputFileControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="SelectTypeControlTemplate">
+        <ctrl:SelectTypeControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="TextControlTemplate">
+        <ctrl:TextControl />
+    </DataTemplate>
+
+    <DataTemplate x:Key="UriControlTemplate">
+        <ctrl:UriControl />
+    </DataTemplate>
+
+    <!-- The custom DataTemplateSelector to select one of the named DataTemplates -->
+    <ui:ControlTemplateSelector x:Key="ControlTemplateSelector"
+        GroupOptionsControlTemplate="{StaticResource GroupOptionsControlTemplate}"
+        GroupOptionsContainerControlTemplate="{StaticResource GroupOptionsContainerControlTemplate}"
+        CheckControlTemplate="{StaticResource CheckControlTemplate}"
+        FolderControlTemplate="{StaticResource FolderControlTemplate}"
+        InputFileControlTemplate ="{StaticResource InputFileControlTemplate}"
+        IntegerControlTemplate="{StaticResource IntegerControlTemplate}"
+        LiteralControlTemplate="{StaticResource LiteralControlTemplate}"
+        MultilineControlTemplate ="{StaticResource MultilineControlTemplate}"
+        NumberControlTemplate = "{StaticResource NumberControlTemplate}"
+        OutputFileControlTemplate ="{StaticResource OutputFileControlTemplate}"
+        SelectTypeControlTemplate ="{StaticResource SelectTypeControlTemplate}"
+        TextControlTemplate ="{StaticResource TextControlTemplate}"
+        UriControlTemplate ="{StaticResource UriControlTemplate}"
+        />
+
+</ResourceDictionary>

@@ -1,0 +1,23 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.LiteralControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="200"
+             ToolTip="{Binding Path=Description, Mode=OneTime}">
+
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Name="LiteralLabel" Content="{Binding Path=Name, Mode=OneTime}"/>
+        <Label Name="Literal" Grid.Column="1" Content="{Binding Path=Value.DisplayValue, Mode=OneTime}"/>
+    </Grid>
+</ctrl:GuiControl>

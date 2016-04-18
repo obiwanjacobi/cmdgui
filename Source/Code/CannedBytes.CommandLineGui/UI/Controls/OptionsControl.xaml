@@ -1,0 +1,46 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.OptionsControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             xmlns:cmd="clr-namespace:CannedBytes.CommandLineGui.Commands"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="200"
+             ToolTip="{Binding Description, Mode=OneTime}">
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="OptionsLabel" Content="{Binding Path=Name, Mode=OneTime}"/>
+
+        <Image Name="ValidationImage" HorizontalAlignment="Right"
+               Validation.ValidationAdornerSiteFor="{Binding ElementName=OptionsList}"
+               Source="/CannedBytes.CommandLineGui;component/Resources/Alert.png"
+               Style="{StaticResource ValidationImage}">
+        </Image>
+
+        <Button Name="DeselectOption" Grid.Column="2" Click="DeselectOption_Click"
+                Command="cmd:AppCommands.Modified" ToolTip="Deselect selected item."
+                Visibility="{Binding Path=IsOptional, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Decrease.png" />
+        </Button>
+
+        <ListBox Grid.Column="1" Grid.RowSpan="2" Name="OptionsList" ItemsSource="{Binding Path=Values, Mode=OneTime}"
+                 SelectedItem="{Binding SelectedOption, Mode=TwoWay}"
+                 SelectionChanged="OptionsList_SelectionChanged">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Label Content="{Binding DisplayValue, Mode=OneTime}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</ctrl:GuiControl>

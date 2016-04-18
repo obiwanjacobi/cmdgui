@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CommandLineFile" elementFormDefault="qualified" version="1.0"
+    targetNamespace="http://schemas.cannedbytes.com/CommandLineGui/Document/v1"
+    xmlns="http://schemas.cannedbytes.com/CommandLineGui/Document/v1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+
+  <!-- root element -->
+  <xs:element name="document" type="guiDocument" />
+
+  <xs:complexType name="guiDocument">
+    <xs:sequence>
+      <xs:element name="toolDefinition" type="toolDefinition" />
+      <xs:element name="arguments" type="arguments" minOccurs="0" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="toolDefinition">
+    <xs:sequence>
+      <xs:element name="guiSchema" type="guiSchema" minOccurs="0" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:ID" />
+    <xs:attribute name="location" type="xs:string" />
+    <xs:attribute name="guiSchemaRef" type="xs:string" />
+  </xs:complexType>
+
+  <xs:complexType name="guiSchema">
+    <xs:all />
+  </xs:complexType>
+
+  <xs:complexType name="argument">
+    <xs:sequence>
+      <xs:element name="value" type="xs:string" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <xs:complexType name="arguments">
+    <xs:sequence>
+      <xs:element name="argument" type="argument" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+</xs:schema>

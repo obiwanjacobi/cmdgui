@@ -1,0 +1,8 @@
+﻿<Window x:Class="CannedBytes.CommandLineGui.UI.ToolWindow" x:ClassModifier="internal"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:ui="clr-namespace:CannedBytes.CommandLineGui.UI"
+        Title="ToolWindow" Height="400" Width="600"
+        ShowInTaskbar="False" WindowStartupLocation="CenterScreen" WindowStyle="ToolWindow"
+        Icon="/CannedBytes.CommandLineGui;component/Resources/Terminal2.ico">
+</Window>

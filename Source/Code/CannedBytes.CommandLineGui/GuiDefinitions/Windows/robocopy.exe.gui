@@ -1,0 +1,379 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
+  <executable name="Robo-Copy" location="%WINDIR%\System32\robocopy.exe" helpCmd="/?" helpUrl="http://technet.microsoft.com/en-us/library/cc733145(WS.10).aspx">
+    <arguments>
+      <argument name="Source" format="&quot;{0}&quot;" multiplicity="ExactlyOne" ordinal="0" description="Specifies the path to the source directory."/>
+      <argument name="Destination" format="&quot;{0}&quot;" multiplicity="ExactlyOne" ordinal="1" description="Specifies the path to the destination directory."/>
+      <argument name="FileMask" format="{0}" multiplicity="ZeroOrOne" ordinal="2" description="Specifies the file or files to be copied. You can use wildcard characters (* or ?), if you want. If the File parameter is not specified, *.* is used as the default value."/>
+      <!-- copy options -->
+      <argument name="SubDirectories" format="/s" multiplicity="ZeroOrOne" description="Copies subdirectories. Note that this option excludes empty directories."/>
+      <argument name="SubDirsInclEmpty" format="/e" multiplicity="ZeroOrOne" description="Copies subdirectories. Note that this option includes empty directories."/>
+      <argument name="DirLevel" format="/lev:{0}" multiplicity="ZeroOrOne" description="Copies only the top N levels of the source directory tree."/>
+      <argument name="RestartMode" format="/z" multiplicity="ZeroOrOne" description="Copies files in Restart mode."/>
+      <argument name="BackupMode" format="/b" multiplicity="ZeroOrOne" description="Copies files in Backup mode."/>
+      <argument name="RestartModeBackup" format="/zb" multiplicity="ZeroOrOne" description="Uses Restart mode. If access is denied, this option uses Backup mode."/>
+      <argument name="EfsRaw" format="/afsraw" multiplicity="ZeroOrOne" description="Copies all encrypted files in EFS RAW mode."/>
+      <argument name="CopyFlags" format="/copy:{0}{1}{2}{3}{4}{5}" multiplicity="ZeroOrOne" description="Specifies the file properties to be copied. The default value for CopyFlags is data, attributes, and time stamps."/>
+      <argument name="DirTimestamp" format="/dcopy:T" multiplicity="ZeroOrOne" description="Copies directory time stamps."/>
+      <argument name="Security" format="/sec" multiplicity="ZeroOrOne" description="Copies files with security (equivalent to /copy:DAT)."/>
+      <argument name="CopyAll" format="/copyall" multiplicity="ZeroOrOne" description="Copies all file information (equivalent to /copy:DATSOU)."/>
+      <argument name="CopyNone" format="/nocopy" multiplicity="ZeroOrOne" description="Copies no file information (useful with /purge)."/>
+      <argument name="FixSecurity" format="/secfix" multiplicity="ZeroOrOne" description="Fixes file security on all files, even skipped ones."/>
+      <argument name="FixFileTimes" format="/timfix" multiplicity="ZeroOrOne" description="Fixes file times on all files, even skipped ones."/>
+      <argument name="Purge" format="/purge" multiplicity="ZeroOrOne" description="Deletes destination files and directories that no longer exist in the source."/>
+      <argument name="Mirror" format="/mir" multiplicity="ZeroOrOne" description="Mirrors a directory tree (equivalent to /e plus /purge)."/>
+      <argument name="Move" format="/mov" multiplicity="ZeroOrOne" description="Moves files, and deletes them from the source after they are copied."/>
+      <argument name="MoveAll" format="/move" multiplicity="ZeroOrOne" description="Moves files and directories, and deletes them from the source after they are copied."/>
+      <argument name="AddAttrs" format="/a+:{0}{1}{2}{3}{4}{5}{6}{7}" multiplicity="ZeroOrOne" description="Adds the specified attributes to copied files."/>
+      <argument name="RemoveAttrs" format="/a-:{0}{1}{2}{3}{4}{5}{6}{7}" multiplicity="ZeroOrOne" description="Removes the specified attributes from copied files."/>
+      <argument name="Init" format="/create" multiplicity="ZeroOrOne" description="Creates a directory tree and zero-length files only."/>
+      <argument name="FAT" format="/fat" multiplicity="ZeroOrOne" description="Creates destination files by using 8.3 character-length FAT file names only."/>
+      <argument name="ShortPaths" format="/256" multiplicity="ZeroOrOne" description="Turns off support for very long paths (longer than 256 characters)."/>
+      <argument name="MonitorChanges" format="/mon:{0}" multiplicity="ZeroOrOne" description="Monitors the source, and runs again when more than N changes are detected."/>
+      <argument name="MonitorMinutes" format="/mot:{0}" multiplicity="ZeroOrOne" description="Monitors source, and runs again in M minutes if changes are detected."/>
+      <argument name="Schedule" format="/rh:{0:hhmm}-{1:hhmm}" multiplicity="ZeroOrOne" description="Specifies run times when new copies may be started."/>
+      <argument name="Performance" format="/pf" multiplicity="ZeroOrOne" description="Checks run times on a per-file (not per-pass) basis."/>
+      <argument name="InterPacketGap" format="/ipg" multiplicity="ZeroOrOne" description="Specifies the inter-packet gap to free bandwidth on slow lines."/>
+      <argument name="SymbolicLink" format="/sl" multiplicity="ZeroOrOne" description="Copies the symbolic link instead of the target."/>
+      <!-- file selection options -->
+      <argument name="Archive" format="/a" multiplicity="ZeroOrOne" description="Copies only files for which the Archive attribute is set."/>
+      <argument name="ArchiveReset" format="/m" multiplicity="ZeroOrOne" description="Copies only files for which the Archive attribute is set, and resets the Archive attribute."/>
+      <argument name="InclAttrs" format="/ia:{0}{1}{2}{3}{4}{5}{6}{7}{8}" multiplicity="ZeroOrOne" description="Includes only files for which any of the specified attributes are set."/>
+      <argument name="ExclAttrs" format="/ia:{0}{1}{2}{3}{4}{5}{6}{7}{8}" multiplicity="ZeroOrOne" description="Excludes files for which any of the specified attributes are set."/>
+      <argument name="ExclFiles" format="/xf:{0}" multiplicity="ZeroOrOne" description="Excludes files that match the specified names or paths. Note that FileName can include wildcard characters (* and ?)."/>
+      <argument name="ExclDirs" format="/xd:{0}" multiplicity="ZeroOrOne" description="Excludes directories that match the specified names and paths."/>
+      <argument name="ExclChangedFiles" format="/xct" multiplicity="ZeroOrOne" description="Excludes changed files."/>
+      <argument name="ExclNewerFiles" format="/xn" multiplicity="ZeroOrOne" description="Excludes newer files."/>
+      <argument name="ExclOlderFiles" format="/xo" multiplicity="ZeroOrOne" description="Excludes older files."/>
+      <argument name="ExclExtra" format="/xx" multiplicity="ZeroOrOne" description="Excludes extra files and directories."/>
+      <argument name="ExclLonely" format="/xl" multiplicity="ZeroOrOne" description="Excludes 'lonely' files and directories."/>
+      <argument name="InclSameFiles" format="/is" multiplicity="ZeroOrOne" description="Includes the same files."/>
+      <argument name="InclTweakedFiles" format="/it" multiplicity="ZeroOrOne" description="Includes 'tweaked' files."/>
+      <argument name="MaxSize" format="/max:{0}" multiplicity="ZeroOrOne" description="Specifies the maximum file size (to exclude files bigger than N bytes)."/>
+      <argument name="MinSize" format="/min{0}" multiplicity="ZeroOrOne" description="Specifies the minimum file size (to exclude files smaller than N bytes)."/>
+      <argument name="MaxAge" format="/maxage:{0}" multiplicity="ZeroOrOne" description="Specifies the maximum file age (to exclude files older than N days or date)."/>
+      <argument name="MinAge" format="/minage:{0}" multiplicity="ZeroOrOne" description="Specifies the minimum file age (exclude files newer than N days or date)."/>
+      <argument name="MaxLastAccess" format="/maxlad:{0}" multiplicity="ZeroOrOne" description="Specifies the maximum last access date (excludes files unused since N). &#xa;If N is less than 1900, N specifies the number of days. Otherwise, N specifies a date in the format YYYYMMDD."/>
+      <argument name="MinLastAccess" format="/minlad:{0}" multiplicity="ZeroOrOne" description="Specifies the minimum last access date (excludes files unused since N). &#xa;If N is less than 1900, N specifies the number of days. Otherwise, N specifies a date in the format YYYYMMDD."/>
+      <argument name="ExclJunctionPts" format="/xj" multiplicity="ZeroOrOne" description="Excludes junction points, which are normally included by default."/>
+      <argument name="AssumeFAT" format="/fft" multiplicity="ZeroOrOne" description="Assumes FAT file times (two-second precision)."/>
+      <argument name="CompensateDST" format="/dst" multiplicity="ZeroOrOne" description="Compensates for one-hour DST time differences."/>
+      <argument name="ExclJunctionPtsDirs" format="/xjd" multiplicity="ZeroOrOne" description="Excludes junction points for directories."/>
+      <argument name="ExclJunctionPtsFiles" format="/xjf" multiplicity="ZeroOrOne" description="Excludes junction points for files."/>
+      <!-- retry options -->
+    </arguments>
+    <gui name="Robo-Copy">
+      <control type="Display"/>
+
+      <binding name="Source Directory">
+        <control type="Folder"/>
+        <bindTo argument="Source"/>
+      </binding>
+
+      <binding name="Destination Directory">
+        <control type="Folder"/>
+        <bindTo argument="Destination"/>
+      </binding>
+
+      <binding name="File Mask">
+        <control type="Text"/>
+        <bindTo argument="FileMask"/>
+      </binding>
+
+      <bindingGroup name="Copy Options">
+        <control type="Display"/>
+
+        <bindingGroup name="Sub Directories">
+          <control type="Options"/>
+
+          <binding name="Non-Empty">
+            <control type="Literal"/>
+            <bindTo argument="SubDirectories"/>
+          </binding>
+
+          <binding name="All">
+            <control type="Literal"/>
+            <bindTo argument="SubDirsInclEmpty"/>
+          </binding>
+        </bindingGroup>
+
+        <binding name="Directory Level">
+          <control type="Integer"/>
+          <bindTo argument="DirLevel"/>
+        </binding>
+
+        <bindingGroup name="Mode">
+          <control type="Options"/>
+
+          <binding name="Restart Mode">
+            <control type="Literal"/>
+            <bindTo argument="RestartMode"/>
+          </binding>
+
+          <binding name="Backup Mode">
+            <control type="Literal"/>
+            <bindTo argument="BackupMode"/>
+          </binding>
+
+          <binding name="Restart Mode then Backup">
+            <control type="Literal"/>
+            <bindTo argument="RestartModeBackup"/>
+          </binding>
+
+        </bindingGroup>
+
+        <bindingGroup name="Copy Flags">
+          <control type="Options"/>
+
+          <binding name="Copy None">
+            <control type="Literal"/>
+            <bindTo argument="CopyNone"/>
+          </binding>
+
+          <binding name="Copy All">
+            <control type="Literal"/>
+            <bindTo argument="CopyAll"/>
+          </binding>
+
+          <binding name="Security">
+            <control type="Literal"/>
+            <bindTo argument="Security"/>
+          </binding>
+
+          <binding name="Custom">
+            <control type="Check"/>
+            <bindTo argument="CopyFlags"/>
+            <value key="D">Data</value>
+            <value key="A">Attributes</value>
+            <value key="T">Timestamps</value>
+            <value key="S">NTFS ACL</value>
+            <value key="O">Owner Info</value>
+            <value key="U">Auditing Info</value>
+          </binding>
+        </bindingGroup>
+
+        <bindingGroup name="Fix">
+          <control type="Display"/>
+
+          <binding name="Security">
+            <control type="Check"/>
+            <bindTo argument="FixSecurity"/>
+          </binding>
+
+          <binding name="File Times">
+            <control type="Check"/>
+            <bindTo argument="FixFileTimes"/>
+          </binding>
+        </bindingGroup>
+
+        <binding name="Purge">
+          <control type ="Check"/>
+          <bindTo argument="Purge"/>
+        </binding>
+
+        <binding name="Mirror">
+          <control type ="Check"/>
+          <bindTo argument="Mirror"/>
+        </binding>
+
+        <binding name="Move">
+          <control type ="Check"/>
+          <bindTo argument="Move"/>
+        </binding>
+
+        <binding name="Move All">
+          <control type ="Check"/>
+          <bindTo argument="MoveAll"/>
+        </binding>
+
+        <binding name="Add File Attributes">
+          <control type="Check"/>
+          <bindTo argument="AddAttrs"/>
+          <value key="R">Read-only</value>
+          <value key="A">Archived</value>
+          <value key="S">System</value>
+          <value key="H">Hidden</value>
+          <value key="C">Compressed</value>
+          <value key="N">Normal</value>
+          <value key="E">Encrypted</value>
+          <value key="T">Temporary</value>
+        </binding>
+
+        <binding name="Remove File Attributes">
+          <control type="Check"/>
+          <bindTo argument="RemoveAttrs"/>
+          <value key="R">Read-only</value>
+          <value key="A">Archived</value>
+          <value key="S">System</value>
+          <value key="H">Hidden</value>
+          <value key="C">Compressed</value>
+          <value key="N">Normal</value>
+          <value key="E">Encrypted</value>
+          <value key="T">Temporary</value>
+        </binding>
+
+        <binding name="Initialize">
+          <control type ="Check"/>
+          <bindTo argument="Init"/>
+        </binding>
+
+        <binding name="FAT">
+          <control type ="Check"/>
+          <bindTo argument="FAT"/>
+        </binding>
+
+        <binding name="Restrict Path Lengths">
+          <control type ="Check"/>
+          <bindTo argument="ShortPaths"/>
+        </binding>
+
+        <binding name="Monitor Changes">
+          <control type ="Integer"/>
+          <bindTo argument="MonitorChanges"/>
+        </binding>
+
+        <binding name="Monitor Minutes">
+          <control type ="Integer"/>
+          <bindTo argument="MonitorMinutes"/>
+        </binding>
+
+        <binding name="Schedule">
+          <control type ="Text"/>
+          <bindTo argument="Schedule"/>
+          <value key="">From (hhmm)</value>
+          <value key="">Till (hhmm)</value>
+        </binding>
+
+        <binding name="Perforamnce">
+          <control type ="Check"/>
+          <bindTo argument="Performance"/>
+        </binding>
+
+        <binding name="Inter Packet Gap">
+          <control type ="Check"/>
+          <bindTo argument="InterPacketGap"/>
+        </binding>
+
+        <binding name="Symbolic Link">
+          <control type ="Check"/>
+          <bindTo argument="SymbolicLink"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="File Selection">
+        <control type="Display"/>
+
+        <bindingGroup name="Include">
+          <control type="Display"/>
+
+          <binding name="Archive Attribute">
+            <control type="Check"/>
+            <bindTo argument="Archive"/>
+          </binding>
+
+          <binding name="Archive Attribute - Reset">
+            <control type="Check"/>
+            <bindTo argument="ArchiveReset"/>
+          </binding>
+
+          <binding name="File Attributes">
+            <control type="Check"/>
+            <bindTo argument="InclAttrs"/>
+            <value key="R">Read-only</value>
+            <value key="A">Archived</value>
+            <value key="S">System</value>
+            <value key="H">Hidden</value>
+            <value key="C">Compressed</value>
+            <value key="N">Normal</value>
+            <value key="E">Encrypted</value>
+            <value key="T">Temporary</value>
+            <value key="O">Offline</value>
+          </binding>
+
+          <binding name="Same Files">
+            <control type="Check"/>
+            <bindTo argument="InclSameFiles"/>
+          </binding>
+
+          <binding name="Tweaked Files">
+            <control type="Check"/>
+            <bindTo argument="InclTweakedFiles"/>
+          </binding>
+        </bindingGroup>
+
+        <bindingGroup name="Exclude">
+          <control type="Display"/>
+
+          <binding name="Files">
+            <control type="Text"/>
+            <bindTo argument="ExclFiles"/>
+          </binding>
+
+          <binding name="Directories">
+            <control type="Text"/>
+            <bindTo argument="ExclDirs"/>
+          </binding>
+
+          <binding name="File Attributes">
+            <control type="Check"/>
+            <bindTo argument="ExclAttrs"/>
+            <value key="R">Read-only</value>
+            <value key="A">Archived</value>
+            <value key="S">System</value>
+            <value key="H">Hidden</value>
+            <value key="C">Compressed</value>
+            <value key="N">Normal</value>
+            <value key="E">Encrypted</value>
+            <value key="T">Temporary</value>
+            <value key="O">Offline</value>
+          </binding>
+
+          <binding name="Changed Files">
+            <control type="Check"/>
+            <bindTo argument="ExclChangedFiles"/>
+          </binding>
+
+          <binding name="Newer Files">
+            <control type="Check"/>
+            <bindTo argument="ExclNewerFiles"/>
+          </binding>
+
+          <binding name="Older Files">
+            <control type="Check"/>
+            <bindTo argument="ExclOlderFiles"/>
+          </binding>
+
+          <binding name="Extra Files and Dirs">
+            <control type="Check"/>
+            <bindTo argument="ExclExtra"/>
+          </binding>
+
+          <binding name="Lonely Files and Dirs">
+            <control type="Check"/>
+            <bindTo argument="ExclLonely"/>
+          </binding>
+
+          <binding name="Junction Points">
+            <control type="Check"/>
+            <bindTo argument="ExclJunctionPts"/>
+          </binding>
+
+          <binding name="Junction Points for Files">
+            <control type="Check"/>
+            <bindTo argument="ExclJunctionPtsFiles"/>
+          </binding>
+
+          <binding name="Junction Points for Directories">
+            <control type="Check"/>
+            <bindTo argument="ExclJunctionPtsDirs"/>
+          </binding>
+
+        </bindingGroup>
+      </bindingGroup>
+    </gui>
+
+    <exitCodes>
+      <exitCode value="0" description="Success"/>
+    </exitCodes>
+  </executable>
+</executables>

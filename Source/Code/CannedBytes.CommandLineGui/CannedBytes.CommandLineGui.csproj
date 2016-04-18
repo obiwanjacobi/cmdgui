@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{51DED1B9-B2BF-4B97-8A26-0364EB9FB359}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CannedBytes.CommandLineGui</RootNamespace>
+    <AssemblyName>CannedBytes.CommandLineGui</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <DocumentationFile>
+    </DocumentationFile>
+    <GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Terminal2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>..\..\..\_keyfile\CannedBytes.snk</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CannedBytes.CommandLineGui.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="..\..\..\_AssemblyInfo\AssemblyInfo.General.cs">
+      <Link>Properties\AssemblyInfo.General.cs</Link>
+    </Compile>
+    <Compile Include="..\AssemblyInfo.Version.cs">
+      <Link>Properties\AssemblyInfo.Version.cs</Link>
+    </Compile>
+    <Compile Include="BindingModelNavigator.cs" />
+    <Compile Include="CommandLineBuilder.cs" />
+    <Compile Include="Model\Validation\IntegerMinMaxValidationRule.cs" />
+    <Compile Include="Model\Validation\NumberMinMacValidationRule.cs" />
+    <Compile Include="Model\Validation\RegexValidationRule.cs" />
+    <Compile Include="Model\Validation\StringLengthValidationRule.cs" />
+    <Compile Include="Model\Validation\UriValidationRule.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Schema\Version1\ConfigurationObject.cs" />
+    <Compile Include="Model\Factory\ExtensionsForSchemaVersion1.cs" />
+    <Compile Include="Model\HelpInfo.cs" />
+    <Compile Include="Model\Validation\FileExistsValiadtionRule.cs" />
+    <Compile Include="Model\Validation\FolderExistsValidationRule.cs" />
+    <Compile Include="Model\Validation\NotNullOrEmptyValidationRule.cs" />
+    <Compile Include="Model\Validation\OptionSelectedValidationRule.cs" />
+    <Compile Include="Persistence\BatchFileTypeProvider.cs" />
+    <Compile Include="Persistence\CommandLineGuiFileTypeProvider.cs" />
+    <Compile Include="Commands\CommandHandler.cs" />
+    <Compile Include="Commands\EditCopyHandler.cs" />
+    <Compile Include="Commands\EditModifiedHandler.cs" />
+    <Compile Include="Commands\FileCloseHandler.cs" />
+    <Compile Include="Commands\FileNewHandler.cs" />
+    <Compile Include="Commands\FileOpenHandler.cs" />
+    <Compile Include="Commands\FileSaveAllHandler.cs" />
+    <Compile Include="Commands\FileSaveAsHandler.cs" />
+    <Compile Include="Commands\FileSaveHandler.cs" />
+    <Compile Include="Commands\NavigateUrlHandler.cs" />
+    <Compile Include="Commands\ToolHelpHandler.cs" />
+    <Compile Include="Commands\ToolExecuteHandler.cs" />
+    <Compile Include="Schema\GuiSchema.cs" />
+    <Compile Include="Schema\GuiSchemaManager.cs" />
+    <Compile Include="Schema\ToolInfo.cs" />
+    <Compile Include="Persistence\FileReaderVersion1.cs" />
+    <Compile Include="Persistence\FileWriterVersion1.cs" />
+    <Compile Include="GuiDocument.cs" />
+    <Compile Include="GuiDocumentManager.cs" />
+    <Compile Include="ITextOutput.cs" />
+    <Compile Include="ObservableObject.cs" />
+    <Compile Include="Persistence\Constants.cs" />
+    <Compile Include="Persistence\FileFilterManager.cs" />
+    <Compile Include="Persistence\IFileTypeProvider.cs" />
+    <Compile Include="Persistence\PersistenceManager.cs" />
+    <Compile Include="Persistence\Version1\Argument.cs" />
+    <Compile Include="Persistence\Version1\ArgumentList.cs" />
+    <None Include="..\..\..\_keyfile\CannedBytes.snk">
+      <Link>Properties\CannedBytes.snk</Link>
+    </None>
+    <None Include="GuiDefinitions\SharePoint\STSAdmin\backuprestore.stsadmin.exe.gui">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GuiDefinitions\SharePoint\STSAdmin\database.stsadmin.exe.gui">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GuiDefinitions\Test.gui" />
+    <None Include="GuiDefinitions\VS2010\svcutil.exe.gui">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="GuiDefinitions\Windows\robocopy.exe.gui">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="GuiDefinitions\SharePoint\stsadmin.exe.gui">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Persistence\Version1\CommandLineDocumentSchema.cs">
+      <DependentUpon>CommandLineDocumentSchema.xsd</DependentUpon>
+    </None>
+    <Compile Include="Persistence\Version1\GuiFileDocument.cs" />
+    <Compile Include="Persistence\Version1\ToolDefinition.cs" />
+    <Compile Include="ToolExecutionHost.cs" />
+    <Compile Include="UI\BoolToVisibilityConverter.cs" />
+    <Compile Include="UI\ConsoleOutput.xaml.cs">
+      <DependentUpon>ConsoleOutput.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\CheckControl.xaml.cs">
+      <DependentUpon>CheckControl.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\Controls\GuiControl.cs" />
+    <Compile Include="ArgumentNotFoundException.cs" />
+    <Compile Include="Commands\AppCommands.cs" />
+    <Compile Include="UI\DropDownButton.cs" />
+    <Compile Include="Model\ModelObject.cs" />
+    <Compile Include="UI\Controls\Help.xaml.cs">
+      <DependentUpon>Help.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\SelectSchema.xaml.cs">
+      <DependentUpon>SelectSchema.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ControlTemplateSelector.cs" />
+    <Compile Include="UI\Controls\MultiValueControl.xaml.cs">
+      <DependentUpon>MultiValueControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\GuiDocumentPage.xaml.cs">
+      <DependentUpon>GuiDocumentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ArgumentEntity.cs" />
+    <Compile Include="Model\BindingModel.cs" />
+    <Compile Include="Model\MultiValueBindingModel.cs" />
+    <Compile Include="Model\DisplayGroupBindingModel.cs" />
+    <Compile Include="Model\Factory\BindingModelFactoryForSchemaVersion1.cs" />
+    <Compile Include="Model\GroupBindingModel.cs" />
+    <Compile Include="Model\RepeatingValueBindingModel.cs" />
+    <Compile Include="Model\OptionsGroupBindingModel.cs" />
+    <Compile Include="Model\OptionsValueBindingModel.cs" />
+    <Compile Include="Model\SingleValueBindingModel.cs" />
+    <Compile Include="Model\ValueBindingModel.cs" />
+    <Compile Include="Model\ValueEntity.cs" />
+    <Compile Include="UI\Toolbar.xaml.cs">
+      <DependentUpon>Toolbar.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ToolWindow.xaml.cs">
+      <DependentUpon>ToolWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Win32Window.cs" />
+    <None Include="Schema\Version1\FileVersion1Model.cd" />
+    <EmbeddedResource Include="Persistence\Version1\CommandLineDocumentSchema.xsd">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="Persistence\Version1\GenerateXmlClasses.bat" />
+    <None Include="Model\BindingModel.cd" />
+    <None Include="Reactor\CannedBytes.CommandLineGui.license" />
+    <None Include="Reactor\CannedBytes.CommandLineGui.nrproj" />
+    <Page Include="UI\ConsoleOutput.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ControlTemplates.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\CheckControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\FolderControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\GroupDisplayControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\GroupOptionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\InputFileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\IntegerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\LiteralControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\MultilineControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\MultiValueControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\NumberControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\OptionsControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\OutputFileControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\RepeaterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\SelectTypeControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\TextControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\GroupOptionsContainerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\UriControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\DefaultStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\GuiDocumentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Controls\Help.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Schema\Version1\Argument.cs" />
+    <Compile Include="Schema\Version1\ArgumentList.cs" />
+    <Compile Include="Schema\Version1\Binding.cs" />
+    <Compile Include="Schema\Version1\BindingArgument.cs" />
+    <Compile Include="Schema\Version1\BindingControl.cs" />
+    <Compile Include="Schema\Version1\BindingGroup.cs" />
+    <Compile Include="Schema\Version1\BindingValue.cs" />
+    <Compile Include="Schema\Version1\BindingValueList.cs" />
+    <Compile Include="Schema\Constants.cs" />
+    <Compile Include="Schema\Version1\ControlTypes.cs" />
+    <Compile Include="Schema\Version1\Executable.cs" />
+    <Compile Include="Schema\Version1\ExecutableList.cs" />
+    <Compile Include="Schema\Version1\ExitCode.cs" />
+    <Compile Include="Schema\Version1\ExitCodeList.cs" />
+    <Compile Include="Schema\Version1\GroupControl.cs" />
+    <Compile Include="Schema\Version1\GroupTypes.cs" />
+    <Compile Include="Schema\Version1\Multiplicity.cs" />
+    <Compile Include="Schema\Version1\CommandLineGuiConfig.cs" />
+    <Compile Include="Persistence\XmlSerializer.cs" />
+    <Compile Include="UI\Controls\FolderControl.xaml.cs">
+      <DependentUpon>FolderControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\GroupDisplayControl.xaml.cs">
+      <DependentUpon>GroupDisplayControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\GroupOptionsControl.xaml.cs">
+      <DependentUpon>GroupOptionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\InputFileControl.xaml.cs">
+      <DependentUpon>InputFileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\IntegerControl.xaml.cs">
+      <DependentUpon>IntegerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\LiteralControl.xaml.cs">
+      <DependentUpon>LiteralControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\MultilineControl.xaml.cs">
+      <DependentUpon>MultilineControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\NumberControl.xaml.cs">
+      <DependentUpon>NumberControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\OptionsControl.xaml.cs">
+      <DependentUpon>OptionsControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\OutputFileControl.xaml.cs">
+      <DependentUpon>OutputFileControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\RepeaterControl.xaml.cs">
+      <DependentUpon>RepeaterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\SelectTypeControl.xaml.cs">
+      <DependentUpon>SelectTypeControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\TextControl.xaml.cs">
+      <DependentUpon>TextControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\GroupOptionsContainerControl.xaml.cs">
+      <DependentUpon>GroupOptionsContainerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Controls\UriControl.xaml.cs">
+      <DependentUpon>UriControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ControlFactory.cs" />
+    <Compile Include="UI\MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="UI\SelectSchema.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Toolbar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\ToolWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Schema\Version1\CommandLineGuiSchema.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </EmbeddedResource>
+    <None Include="Schema\Version1\GenerateXmlClasses.bat" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Alert.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Add File.png" />
+    <Resource Include="Resources\Block.png" />
+    <Resource Include="Resources\Confirm.png" />
+    <Resource Include="Resources\Decrease.png" />
+    <Resource Include="Resources\Denied.png" />
+    <Resource Include="Resources\Exit.png" />
+    <Resource Include="Resources\Export File.png" />
+    <Resource Include="Resources\folder.png" />
+    <Resource Include="Resources\Help.png" />
+    <Resource Include="Resources\Import File.png" />
+    <Resource Include="Resources\Increase.png" />
+    <Resource Include="Resources\Info.png" />
+    <Resource Include="Resources\Min.png" />
+    <Resource Include="Resources\Play.png" />
+    <Resource Include="Resources\Save.png" />
+    <Resource Include="Resources\Settings.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Import Mail.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Terminal2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release "D:\Program Files (x86)\Eziriz\.NET Reactor\dotNET_Reactor.Console.exe" -file "D:\Projects\Personal\CannedBytes\Source\CannedBytes.CommandLineGui\CannedBytes.CommandLineGui\bin\Release\CannedBytes.CommandLineGui.exe" -snkeypair "D:\Projects\Personal\CannedBytes\_keyfile\CannedBytes.snk" -mapping_file 1</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

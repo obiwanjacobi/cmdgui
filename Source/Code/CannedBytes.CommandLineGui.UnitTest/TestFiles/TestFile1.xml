@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Config/v1" fileVersion="1.0.0">
+  <executable name="fake.exe" location="/relative folder/fake.exe" helpCmd="/?">
+    <arguments>
+      <argument name="arg1" format="/a1" multiplicity="ExactlyOne"/>
+    </arguments>
+    <gui name="Test1">
+      <binding name="default">
+        <control type="Check"/>
+        <bindTo argument="arg1"/>
+      </binding>
+    </gui>
+    <exitCodes>
+      <exitCode value="0" description="Success."/>
+    </exitCodes>
+  </executable>
+</executables> 

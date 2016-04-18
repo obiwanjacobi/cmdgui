@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="CannedBytes.CommandLineGui.UI.Controls.Help" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:cmd="clr-namespace:CannedBytes.CommandLineGui.Commands"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="100"
+             Visibility="{Binding Path=IsEmpty, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="Auto" />
+        </Grid.ColumnDefinitions>
+
+        <Button Name="HelpUrl" Command="cmd:AppCommands.NavigateUrl"
+                CommandParameter="{Binding Path=HelpUrl, Mode=OneTime}"
+                Visibility="{Binding Path=IsHelpUrlEmpty, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}"
+                Grid.Column="0" Margin="2,4,4,4" ToolTip="Open online documentation.">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Info.png" />
+        </Button>
+        <Button Name="HelpCmd" Command="cmd:AppCommands.ToolHelp"
+                CommandParameter="{Binding Path=HelpCmd, Mode=OneTime}"
+                Visibility="{Binding Path=IsHelpCmdEmpty, Mode=OneTime, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=True}"
+                Grid.Column="1" Margin="2,4,4,4" ToolTip="Run the help command.">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Help.png" />
+        </Button>
+    </Grid>
+</UserControl>
