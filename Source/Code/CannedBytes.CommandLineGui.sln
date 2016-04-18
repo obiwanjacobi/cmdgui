@@ -1,26 +1,20 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.CommandLineGui", "CannedBytes.CommandLineGui\CannedBytes.CommandLineGui.csproj", "{51DED1B9-B2BF-4B97-8A26-0364EB9FB359}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3613DF83-D94D-4BB8-861D-A8746D63EF17}"
 	ProjectSection(SolutionItems) = preProject
-		CannedBytes.CommandLineGui.vsmdi = CannedBytes.CommandLineGui.vsmdi
-		Local.testsettings = Local.testsettings
 		TODO.txt = TODO.txt
-		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.CommandLineGui.UnitTest", "CannedBytes.CommandLineGui.UnitTest\CannedBytes.CommandLineGui.UnitTest.csproj", "{DFAA70BA-56D0-463C-8219-5748B3820C0C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.CommandLineGui.Addin", "CannedBytes.CommandLineGui.Addin\CannedBytes.CommandLineGui.Addin.csproj", "{CDD99F80-2189-4764-843C-BC534290EAA5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.EchoCommandLineConsole", "CannedBytes.EchoCommandLineConsole\CannedBytes.EchoCommandLineConsole.csproj", "{F7DE882D-FE5A-4A23-B442-653D954A40DE}"
 EndProject
 Global
-	GlobalSection(TestCaseManagementSettings) = postSolution
-		CategoryFile = CannedBytes.CommandLineGui.vsmdi
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -48,14 +42,6 @@ Global
 		{DFAA70BA-56D0-463C-8219-5748B3820C0C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{DFAA70BA-56D0-463C-8219-5748B3820C0C}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{DFAA70BA-56D0-463C-8219-5748B3820C0C}.Release|x86.ActiveCfg = Release|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{CDD99F80-2189-4764-843C-BC534290EAA5}.Release|x86.ActiveCfg = Release|Any CPU
 		{F7DE882D-FE5A-4A23-B442-653D954A40DE}.Debug|Any CPU.ActiveCfg = Debug|x86
 		{F7DE882D-FE5A-4A23-B442-653D954A40DE}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
 		{F7DE882D-FE5A-4A23-B442-653D954A40DE}.Debug|x86.ActiveCfg = Debug|x86
@@ -67,5 +53,23 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs40
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = CannedBytes.CommandLineGui\\CannedBytes.CommandLineGui.csproj
+		SccProjectName1 = CannedBytes.CommandLineGui
+		SccLocalPath1 = CannedBytes.CommandLineGui
+		SccProjectUniqueName2 = CannedBytes.CommandLineGui.UnitTest\\CannedBytes.CommandLineGui.UnitTest.csproj
+		SccProjectName2 = CannedBytes.CommandLineGui.UnitTest
+		SccLocalPath2 = CannedBytes.CommandLineGui.UnitTest
+		SccProjectUniqueName3 = CannedBytes.EchoCommandLineConsole\\CannedBytes.EchoCommandLineConsole.csproj
+		SccProjectName3 = CannedBytes.EchoCommandLineConsole
+		SccLocalPath3 = CannedBytes.EchoCommandLineConsole
+	EndGlobalSection
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = CannedBytes.CommandLineGui.vsmdi
 	EndGlobalSection
 EndGlobal
