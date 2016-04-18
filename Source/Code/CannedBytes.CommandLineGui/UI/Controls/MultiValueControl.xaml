@@ -1,0 +1,28 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.MultiValueControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="300" d:DesignWidth="300">
+
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Label Name="MultiValueLabel" Content="{Binding Path=Name, Mode=OneTime}"/>
+
+        <ItemsControl Name="ValueList"
+                      ItemsSource="{Binding Path=Bindings, Mode=OneTime}"
+                      ItemTemplateSelector="{StaticResource ControlTemplateSelector}"
+                      Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" />
+    </Grid>
+</ctrl:GuiControl>

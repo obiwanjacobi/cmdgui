@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CommandLineGuiSchema" elementFormDefault="qualified"
+    targetNamespace="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1"
+    xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+>
+  <!-- root element -->
+  <xs:element name="executables" type="executables" />
+
+  <!-- the root of a CommandLineGui schema file. It can contain multiple definitions for exec's. -->
+  <xs:complexType name="executables">
+    <xs:sequence>
+      <xs:element name="executable" type="executable" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+    <xs:attribute name="fileVersion" type="xs:string" use="required" />
+  </xs:complexType>
+
+  <!-- description of one command line argument -->
+  <xs:complexType name="argument">
+    <!-- the logical -human readable- name -->
+    <xs:attribute name="name" type="xs:ID" use="required" />
+    <!-- a formatting string that formats the value retrieved from the UI control into a command line argument. -->
+    <!-- example: "/d:&quot;{0}&quot;" or when just an option list or checkbox control is used "/d" -->
+    <xs:attribute name="format" type="xs:string" use="required" />
+    <!-- indicates how many time the argument can appear in a command line. -->
+    <xs:attribute name="multiplicity" type="multiplicity" use="required" />
+    <!-- a human readable description of the argument. Preferable taken from the docs of the tool. -->
+    <!-- NOTE: use &#xa; as a newline. -->
+    <xs:attribute name="description" type="xs:string" />
+    <!-- An ordinal value for determining the order of the arguments on the command line. -->
+    <xs:attribute name="ordinal" type="xs:int" />
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <!-- a collection of arguments. -->
+  <xs:complexType name="arguments">
+    <xs:sequence>
+      <xs:element name="argument" type="argument" minOccurs="1" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- binds a UI control to a command line argument. -->
+  <xs:complexType name="binding">
+    <xs:sequence>
+      <xs:element name="control" type="bindingControl" />
+      <!-- the @name of the argument -->
+      <xs:element name="bindTo" type="bindingArgument"/>
+      <!-- an optional value that can be used to list options. -->
+      <xs:element name="value" type="bindingValue" minOccurs="0" maxOccurs="unbounded" />
+    </xs:sequence>
+    <!-- an optional name for the binding. Shown in the UI when present. -->
+    <xs:attribute name="name" type="xs:string" />
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <xs:complexType name="bindingControl">
+    <!-- An indication of what type of UI control to display for this binding. -->
+    <xs:attribute name="type" type="controlTypes" use="required" />
+    <!-- optionally use a custom implementation for the UI control. -->
+    <!-- specify the full type name and make sure the control type has a default ctor. -->
+    <!--<xs:attribute name="customType" type="xs:string" use="optional" />-->
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <!-- used in a <binding> to reference a command line arguments. -->
+  <xs:complexType name="bindingArgument">
+    <xs:attribute name="argument" type="xs:IDREF" use="required" />
+  </xs:complexType>
+
+  <!-- used in a <binding> to list options or multiple values. -->
+  <xs:complexType name="bindingValue">
+    <xs:simpleContent>
+      <xs:extension base="xs:string">
+        <!-- an optional key to allow mappings between display values and argument values. -->
+        <xs:attribute name="key" type="xs:string" />
+        <!-- extensibility -->
+        <xs:anyAttribute processContents="lax" namespace="##any" />
+      </xs:extension>
+    </xs:simpleContent>
+  </xs:complexType>
+
+  <!-- a grouping of <binding> elements that are valid together. -->
+  <xs:complexType name="bindingGroup">
+    <xs:sequence>
+      <xs:element name="control" type="groupControl" />
+      <!-- either a <binding> and/or a <bindingGroup> element is used. -->
+      <xs:sequence maxOccurs="unbounded">
+        <xs:element name="binding" type="binding" minOccurs="0" maxOccurs="unbounded" />
+        <!-- a recursive structure of bindingGroup elements is possible. -->
+        <xs:element name="bindingGroup" type="bindingGroup" minOccurs="0" maxOccurs="unbounded" />
+      </xs:sequence>
+    </xs:sequence>
+    <!-- the name of the <bindingGroup> is used in the UI. -->
+    <xs:attribute name="name" type="xs:string" use="required" />
+    <!-- an optional human readable description of this group of argument bindings. -->
+    <xs:attribute name="description" type="xs:string" />
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <!-- indication of the type of control to use for <bindingGroup>'s -->
+  <xs:complexType name="groupControl">
+    <!-- an indication of how the <binding>'s in the group behave -->
+    <xs:attribute name="type" type="groupTypes" use="required" />
+    <!-- optionally use a custom implementation for the UI control. -->
+    <!-- specify the full type name and make sure the control type has a default ctor. -->
+    <!--<xs:attribute name="customType" type="xs:string" />-->
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <!-- a description of an executable command line. -->
+  <xs:complexType name="executable">
+    <xs:sequence>
+      <!-- command line arguments. -->
+      <xs:element name="arguments" type="arguments" />
+      <!-- how the arguments are bound to the UI. -->
+      <xs:element name="gui" type="bindingGroup" />
+      <!-- and optionally how the process exit codes should be interpreted. -->
+      <xs:element name="exitCodes" type="exitCodes" minOccurs="0" />
+      <!-- A file schema is used to persist a filled out form to the file system. -->
+      <!-- When omitted the apps file schema is used. -->
+      <xs:element name="fileSchema" type="fileSchema" minOccurs="0" />
+    </xs:sequence>
+    <!-- A full path to the tool. Can use environment vars. -->
+    <!-- If not found or not specified the app prompts the user to browse for it. -->
+    <xs:attribute name="location" type="xs:string" />
+    <!-- a human friendly name for the executable. -->
+    <xs:attribute name="name" type="xs:ID" use="required" />
+    <!-- the command line argument that brings up the help information. -->
+    <!--<xs:attribute name="helpCmd" type="xs:string" />-->
+    <!-- an external reference to more information on the tool (web site). -->
+    <!--<xs:attribute name="helpUrl" type="xs:anyURI" />-->
+    <xs:attributeGroup ref="help" />
+    <!-- extensibility -->
+    <xs:anyAttribute processContents="lax" namespace="##any" />
+  </xs:complexType>
+
+  <!-- a representation of an exit code value. -->
+  <xs:complexType name="exitCode">
+    <!-- the exit code value returned when the process is finished.-->
+    <xs:attribute name="value" type="xs:int" use="required" />
+    <!-- an explanation of what the exit code means. -->
+    <xs:attribute name="description" type="xs:string" />
+  </xs:complexType>
+
+  <!-- a collection of exit codes. -->
+  <xs:complexType name="exitCodes">
+    <xs:sequence>
+      <xs:element name="exitCode" type="exitCode" maxOccurs="unbounded" />
+    </xs:sequence>
+  </xs:complexType>
+
+  <!-- a file persistency schema -->
+  <xs:complexType name="fileSchema">
+    <xs:all />
+  </xs:complexType>
+
+  <!-- an enumeration of possible group control types. -->
+  <xs:simpleType name="groupTypes">
+    <xs:restriction base="xs:string">
+      <!-- display a group of bindings (default). -->
+      <xs:enumeration value="Display" />
+      <!-- each binding is one option. -->
+      <xs:enumeration value="Options" />
+      <!-- a custom control. -->
+      <!--<xs:enumeration value="Custom" />-->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- an enumeration of possible argument control types. -->
+  <xs:simpleType name="controlTypes">
+    <xs:restriction base="xs:string">
+      <!-- a literal (label) -->
+      <xs:enumeration value="Literal" />
+      <!-- a floating point number. -->
+      <xs:enumeration value="Number" />
+      <!-- a single line of text. -->
+      <xs:enumeration value="Text" />
+      <!-- an integral number. -->
+      <xs:enumeration value="Integer" />
+      <!-- an existing file used for input. -->
+      <xs:enumeration value="InputFile" />
+      <!-- an file path used for output. -->
+      <xs:enumeration value="OutputFile" />
+      <!-- a directory folder. -->
+      <xs:enumeration value="Folder" />
+      <!-- multiple lines of text. -->
+      <xs:enumeration value="Multiline" />
+      <!-- an option list. -->
+      <xs:enumeration value="Options" />
+      <!-- a check option. -->
+      <xs:enumeration value="Check" />
+      <!-- an object type picker -->
+      <xs:enumeration value="SelectType" />
+      <!-- an universal resource identifier -->
+      <xs:enumeration value="Uri" />
+      <!-- a custom control. -->
+      <!--<xs:enumeration value="Custom" />-->
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- an enumeration of how many times an argument can appear in a command line. -->
+  <xs:simpleType name="multiplicity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ZeroOrMore" />
+      <xs:enumeration value="ZeroOrOne" />
+      <xs:enumeration value="ExactlyOne" />
+      <xs:enumeration value="OneOrMore" />
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!-- an extensibility attribute for specifying file extension filters for File controls. -->
+  <!-- an extensibility attribute for applying regex's on Text controls. -->
+  <!-- an extensibility attribute for applying format strings on Numbers controls (not implemented yet) -->
+  <xs:attribute name="mask" type="xs:string" />
+
+  <!-- can be used on Integer (int) and Number (double) controls -->
+  <!-- when used on a text-based controls it restricts string length (int). -->
+  <!-- an extensibility attribute for specifying a minimum value. -->
+  <xs:attribute name="min" type="xs:string" />
+  <!-- an extensibility attribute for specifying a maximum value. -->
+  <xs:attribute name="max" type="xs:string" />
+
+  <!-- an extensibility attribute for specifying (default) value-selection for option controls -->
+  <xs:attribute name="selected" type="xs:boolean" />
+
+  <xs:attributeGroup name="help">
+    <!-- an extensibility attribute for specifying an help command at a binding(group). -->
+    <xs:attribute name="helpCmd" type="xs:string" />
+    <!-- an extensibility attribute for specifying an help command at a binding(group). -->
+    <xs:attribute name="helpUrl" type="xs:anyURI" />
+  </xs:attributeGroup>
+
+</xs:schema>

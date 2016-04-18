@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
+  <executable name="StsAdmin12" location="%COMMONPROGRAMFILES%\microsoft shared\web server extensions\12\bin\stsadmn.exe" helpCmd="/?" helpUrl="http://technet.microsoft.com/en-us/library/cc263431(office.12).aspx">
+    <arguments>
+      <!-- general arguments -->
+      <argument name="Operation" format="-o {0}" multiplicity="ExactlyOne"/>
+
+      <!-- Backup arguments -->
+      <argument name="Url" format="-url {0}" multiplicity="ExactlyOne" description="URL of the site collection that you want to back up."/>
+      <argument name="FileName" format="-filename &quot;{0}&quot;" multiplicity="ExactlyOne" description="Name of the backup file."/>
+      <argument name="NoSiteLock" format="-nositelock" multiplicity="ZeroOrOne" description="Specifies that the site collection lock during a site collection backup is not set to read-only."/>
+      <argument name="Overwrite" format="-overwrite" multiplicity="ZeroOrOne" description="To overwrite an existing backup file."/>
+      <!-- Catastrophic backup arguments -->
+      <argument name="Directory" format="-directory &quot;{0}&quot;" multiplicity="ExactlyOne" description="The path where Microsoft Office SharePoint Server 2007 should store the backup package it generates. &#xa;If you have a computer that has Microsoft SQL Server 2005 and an instance of Office SharePoint Server 2007 installed, you can use local drive paths. &#xa;This would include a basic installation. However, if SQL Server 2005 and Office SharePoint Server 2007 are installed on multiple computers, &#xa;you must use Universal Naming Convention (UNC) share paths so that the SQL database and search components are written to the same location (for example, \\computer_name\volume\Backup). &#xa;Multiple backup packages can be stored in the same location. This is the same path that you would pass to the -directory parameter of the stsadm -o restore operation."/>
+      <argument name="BackupMethod" format="-backupmethod {0}" multiplicity="ExactlyOne" description="Type of backup file to be created. The values are full or differential. &#xa;A full backup is a backup of all the selected data. A differential backup is a backup of all the selected data that has changed since the last full backup."/>
+      <argument name="Force" format="-force" multiplicity="ZeroOrOne" description="Ignores the disk space check and proceeds with the backup."/>
+      <argument name="Item" format="-item &quot;{0}&quot;" multiplicity="ZeroOrOne" description="Indicates which part of the farm should be backed up. &#xa;You might use the full farm path notation as displayed by the -showtree parameter or the name of the target component in the path if it has a unique name. &#xa;If there are multiple items within the same match, the full path must be provided. By default, the top node is selected. Surround the item or path in double quotation marks if it contains a space. &#xa;If this parameter is absent, the entire farm is backed up."/>
+      <argument name="Percentage" format="-percentage {0}" multiplicity="ZeroOrOne" description="Requests backup operation progress updates to be displayed in increments of that percentage &#xa;(for example, a value of '5' will display backup progress updates at 5 percent completed, and a value of '10' will display backup progress updates at 10 percent completed)."/>
+      <argument name="BackupThreads" format="-backupthreads {0}" multiplicity="ZeroOrOne" description="The number of threads that should be used during the backup. For Windows SharePoint Services, the recommended value is 3 threads. &#xa;The default value is 1. The fewer the threads, the easier it is to read and understand the backup log file."/>
+      <argument name="ShowTree" format="-showtree" multiplicity="ZeroOrOne" description="Displays which objects in the farm will be backed up based on the other parameters passed to the backup operation, namely the -item parameter. &#xa;Items that will be excluded from the backup based on the other parameters passed to the backup operation will be preceded with an asterisk character (*). &#xa;Items that cannot be backed up will be enclosed in square brackets ([ ]). A backup will not be performed if the showtree parameter is present."/>
+      <argument name="Quiet" format="-quiet" multiplicity="ZeroOrOne" description="Suppresses the output of backup progress information to the display window. The final backup status ('Operation completed successfully.') will still be displayed. &#xa;If the -quiet parameter is absent, the backup operation will display progress information to the display window as it backs up the package."/>
+      <!-- Restore arguments-->
+      <argument name="HostHeaderWebApplicationUrl" format="-hostheaderwebapplicationurl {0}" multiplicity="ZeroOrOne" description="Restores a site collection as a host-named site collection rather than a path-based site collection. &#xa;When the -hostheaderwebapplicationurl parameter is present, the value of the -url parameter is the &#xa;URL of the host-named site collection and value of the -hostheaderwebapplicationurl parameter is the URL of the Web application that will hold the host-named site collection."/>
+      <argument name="RestoreMethod" format="-restoremethod {0}" multiplicity="ZeroOrOne" description="Specifies the type of farm restore to be performed, either overwrite or new. &#xa;The overwrite value restores the content and settings to their original location. This parameter is to be used only in a catastrophic restore within the same farm. &#xa;If the overwrite value is used, a confirmation prompt is displayed. To suppress the prompt, use the suppressprompt parameter. &#xa;The new value specifies that the content will be restored to a new location and is intended to be used when restoring onto a different farm (for example, a new database server)."/>
+      <argument name="BackupId" format="-backupid {0:D}" multiplicity="ZeroOrOne" description="GUID of the backup package that should be restored. Each backup package has a unique GUID associated with it and can be seen by viewing the backup history by using the stsadm -o backuphistory operation. &#xa;If this parameter is absent, the most recent backup package will be used."/>
+      <argument name="SuppressPrompt" format="-suppressprompt" multiplicity="ZeroOrOne" description="Prevents the following command-line prompt from being displayed: 'Warning: All selected items will be overwritten. Do you want them to be overwritten (Y/N)?'. &#xa;This parameter is valid only when the value of the restoremethod parameter is set to overwrite."/>
+      <argument name="Username" format="-username {0}" multiplicity="ZeroOrOne" description="Sets the same user name for all objects being restored that require a user name, including Web application pools. &#xa;If an entire farm is restored, this parameter should only be used by farms using Windows authentication to connect to a database. &#xa;If only a database is restored, then you may supply a SQL Server 2005 login name."/>
+      <argument name="Password" format="-password {0}" multiplicity="ZeroOrOne" description="Sets the same password for all objects being restored that require a password, including Web application pools. &#xa;If an entire farm is restored, this parameter should only be used by farms that use Windows authentication to connect to database using SQL Server 2005. &#xa;If only a database is restored, then you may supply a SQL Server 2005 login password."/>
+      <argument name="NewDatabaseServer" format="-newdatabaseserver {0}" multiplicity="ZeroOrOne" description="Indicates the instance name of SQL Server 2005 that should be used when restoring any databases when the value of the restoremethod parameter is new. &#xa;This parameter is not valid when the value of the restoremethod parameter is overwrite. &#xa;By default, you are asked for a new database server name for each database."/>
+      <argument name="PreserveChangeLog" format="-preservechangelog" multiplicity="ZeroOrOne" description="Preserves the change log so the next crawl of this content database is not a full crawl."/>
+      <!-- History arguments -->
+      <argument name="BackupHistory" format="-backup" multiplicity="ZeroOrOne" description="Filters the output so that the history of only backup operations is displayed. If both the -backup and the -restore parameters are absent, the history of both backup and restore operations is displayed."/>
+      <argument name="RestoreHistory" format="-restore" multiplicity="ZeroOrOne" description="Filters the output so that the history of only restore operations is displayed. If both the -backup and the -restore parameters are absent, the history of both backup and restore operations is displayed."/>
+    </arguments>
+
+    <gui name="STS-Admin 2007&#xa;Backup/Restore">
+      <control type="Options"/>
+
+      <!--<bindingGroup name="Backup and Restore">
+        <control type="Options"/>-->
+
+      <bindingGroup name="History" helpCmd="-help backuphistory" helpUrl="http://technet.microsoft.com/en-us/library/cc262993(office.12).aspx">
+        <control type="Display"/>
+
+        <binding name="Operation">
+          <control type="Literal"/>
+          <bindTo argument="Operation"/>
+          <value key="backuphistory">History</value>
+        </binding>
+
+        <binding name="Directory">
+          <control type="Folder"/>
+          <bindTo argument="Directory"/>
+        </binding>
+
+        <bindingGroup name="History Of">
+          <control type="Options"/>
+
+          <binding name="Backup">
+            <control type="Literal"/>
+            <bindTo argument="BackupHistory"/>
+          </binding>
+
+          <binding name="Restore">
+            <control type="Literal"/>
+            <bindTo argument="RestoreHistory"/>
+          </binding>
+        </bindingGroup>
+
+      </bindingGroup>
+
+      <bindingGroup name="Backup" helpCmd="-help backup" helpUrl="http://technet.microsoft.com/en-us/library/cc263441(office.12).aspx">
+        <control type="Options"/>
+
+        <binding name="Operation">
+          <control type="Literal"/>
+          <bindTo argument="Operation"/>
+          <value key="backup">Backup</value>
+        </binding>
+
+        <bindingGroup name="Backup">
+          <control type="Display"/>
+
+          <binding name="Url">
+            <control type="Uri"/>
+            <bindTo argument="Url"/>
+          </binding>
+
+          <binding name="File Name">
+            <control type="OutputFile" mask="*.bak"/>
+            <bindTo argument="FileName"/>
+          </binding>
+
+          <binding name="Overwrite">
+            <control type="Check"/>
+            <bindTo argument="Overwrite"/>
+          </binding>
+
+          <binding name="No Site Lock">
+            <control type="Check"/>
+            <bindTo argument="NoSiteLock"/>
+          </binding>
+        </bindingGroup>
+
+        <bindingGroup name="Catastrophic Backup">
+          <control type="Display"/>
+
+          <binding name="Directory">
+            <control type="Folder"/>
+            <bindTo argument="Directory"/>
+          </binding>
+
+          <binding name="Backup Method">
+            <control type="Options"/>
+            <bindTo argument="BackupMethod"/>
+            <value key="full">Full</value>
+            <value key="differential">Differential</value>
+          </binding>
+
+          <binding name="Force">
+            <control type="Check"/>
+            <bindTo argument="Force"/>
+          </binding>
+
+          <binding name="Item">
+            <control type="Text"/>
+            <bindTo argument="Item"/>
+          </binding>
+
+          <binding name="Percentage">
+            <control type="Integer" min="1" max="100"/>
+            <bindTo argument="Percentage"/>
+          </binding>
+
+          <binding name="# Backup Threads">
+            <control type="Integer" min="1" max="10"/>
+            <bindTo argument="BackupThreads"/>
+            <value>3</value>
+          </binding>
+
+          <binding name="Show Tree">
+            <control type="Check"/>
+            <bindTo argument="ShowTree"/>
+          </binding>
+
+          <binding name="Quiet">
+            <control type="Check"/>
+            <bindTo argument="Quiet"/>
+          </binding>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Restore" helpCmd="-help restore" helpUrl="http://technet.microsoft.com/en-us/library/cc262087(office.12).aspx">
+        <control type="Options"/>
+
+        <binding name="Operation">
+          <control type="Literal"/>
+          <bindTo argument="Operation"/>
+          <value key="restore">Restore</value>
+        </binding>
+
+        <bindingGroup name="Restore">
+          <control type="Display"/>
+
+          <binding name="Url">
+            <control type="Uri"/>
+            <bindTo argument="Url"/>
+          </binding>
+
+          <binding name="File Name">
+            <control type="InputFile" mask="*.bak"/>
+            <bindTo argument="FileName"/>
+          </binding>
+
+          <binding name="Web Application Url">
+            <control type="Uri"/>
+            <bindTo argument="HostHeaderWebApplicationUrl"/>
+          </binding>
+
+          <binding name="Overwrite">
+            <control type="Check"/>
+            <bindTo argument="Overwrite"/>
+          </binding>
+        </bindingGroup>
+
+        <bindingGroup name="Catastrophic Restore">
+          <control type="Display"/>
+
+          <binding name="Directory">
+            <control type="Folder"/>
+            <bindTo argument="Directory"/>
+          </binding>
+
+          <binding name="Restore Method">
+            <control type="Options"/>
+            <bindTo argument="RestoreMethod"/>
+            <value key="overwrite">Overwrite</value>
+            <value key="new">New</value>
+          </binding>
+
+          <binding name="Backup Id">
+            <control type="Text"/>
+            <bindTo argument="BackupId"/>
+          </binding>
+
+          <binding name="Item">
+            <control type="Text"/>
+            <bindTo argument="Item"/>
+          </binding>
+
+          <binding name="Percentage">
+            <control type="Integer" min="1" max="100"/>
+            <bindTo argument="Percentage"/>
+          </binding>
+
+          <binding name="Show Tree">
+            <control type="Check"/>
+            <bindTo argument="ShowTree"/>
+          </binding>
+
+          <binding name="Suppress Prompt">
+            <control type="Check"/>
+            <bindTo argument="SuppressPrompt"/>
+          </binding>
+
+          <binding name="User Name">
+            <control type="Text"/>
+            <bindTo argument="Username"/>
+          </binding>
+
+          <binding name="Password">
+            <control type="Text"/>
+            <bindTo argument="Password"/>
+          </binding>
+
+          <binding name="New Database Server">
+            <control type="Text"/>
+            <bindTo argument="NewDatabaseServer"/>
+          </binding>
+
+          <binding name="Preserve Change Log">
+            <control type="Check"/>
+            <bindTo argument="PreserveChangeLog"/>
+          </binding>
+
+          <binding name="Quiet">
+            <control type="Check"/>
+            <bindTo argument="Quiet"/>
+          </binding>
+        </bindingGroup>
+      </bindingGroup>
+
+      <bindingGroup name="Register Wss Writer">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Unregister Wss Writer">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <!--</bindingGroup>-->
+
+    </gui>
+  </executable>
+</executables>

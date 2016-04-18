@@ -1,0 +1,54 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.RepeaterControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             xmlns:cmd="clr-namespace:CannedBytes.CommandLineGui.Commands"
+             mc:Ignorable="d"
+             d:DesignHeight="200" d:DesignWidth="200"
+             ToolTip="{Binding Description, Mode=OneTime}">
+
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <ItemsControl Name="RepeaterList"
+                      ItemsSource="{Binding Path=Bindings, Mode=TwoWay}"
+                      Grid.ColumnSpan="3" Grid.IsSharedSizeScope="True" >
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid HorizontalAlignment="Stretch">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition SharedSizeGroup="RepeaterCol2" />
+                        </Grid.ColumnDefinitions>
+
+                        <ContentPresenter ContentTemplateSelector="{StaticResource ControlTemplateSelector}" Content="{Binding}"
+                                        HorizontalAlignment="Stretch" />
+
+                        <Button Name="RemoveRepeaterItem" ToolTip="Remove this item."
+                                Grid.Column="1" HorizontalAlignment="Left"
+                                IsEnabled="{Binding Path=IsOptional, Mode=OneTime}"
+                                Command="cmd:AppCommands.Modified"
+                                Click="RemoveRepeaterItem_Click">
+                            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Decrease.png" />
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+
+        <Label Name="RepeaterLabel" Content="{Binding Path=Name, Mode=OneTime}" Grid.Row="1"/>
+        <Button Name="AddRepeaterItem" Grid.Row="1" Grid.Column="2" Click="AddRepeaterItem_Click" Command="cmd:AppCommands.Modified" ToolTip="Add an item.">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Increase.png" />
+        </Button>
+    </Grid>
+</ctrl:GuiControl>

@@ -1,0 +1,39 @@
+
+Tool Definitions:
+- SvcUtil
+- Robo Copy
+- STSAdmin
+- C# Compiler
+- git
+
+- Check control (that optionally attaches to an argument) that enables another group of bindings.
+  When no argument is coupled a GroupBinding should be used. 
+  When an argument IS coupled a ValueBinding should be used. 
+  But this introduces children to the ValueBinding - which we do not support.
+
+- Multi-select options control (GroupBinding)
+
+- Dependency StateTable.
+  Allows the availability of options to depend on the value of other options.
+
+- A .gui generator tool that parses the console output to generate the definition file (perhaps an excel add-in).
+
+- ordinals on BindingGroup.
+
+- allow a gui to be defined over multiple files (identified by exe name).
+
+- allow multiple uses of the same argument to contain the same value in the UI (shared group/scope name)
+
+- Implement custom binding and binding-group control support.
+
+- implement custom attrs on argument and overrides by binding(group) control attrs.
+
+- automatic period detection in description texts inserting new-line characters.
+
+- support collapse on (display) group bindings.
+
+- Guid input control.
+
+- Password input control
+
+- Date-Time input control

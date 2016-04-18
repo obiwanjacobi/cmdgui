@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
+  <executable name="StsAdmin12" location="%COMMONPROGRAMFILES%\microsoft shared\web server extensions\12\bin\stsadmn.exe" helpCmd="/?" helpUrl="http://technet.microsoft.com/en-us/library/cc261956(office.12).aspx">
+    <arguments>
+      <!-- general arguments -->
+      <argument name="operation" format="-o {0}" multiplicity="ExactlyOne"/>
+
+    </arguments>
+
+    <gui name="STS-Admin 2007&#xa;Database">
+      <control type="Options"/>
+
+      <!--<bindingGroup name="Database">
+        <control type="Options"/>-->
+
+      <bindingGroup name="Add Content DB">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Delete Content DB">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Enumerate Content DBs">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Merge Content DBs">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Database Repair">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Prepare To Move">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Set Config DB">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <bindingGroup name="Delete Config DB">
+        <control type="Display"/>
+      </bindingGroup>
+
+      <!--</bindingGroup>-->
+
+    </gui>
+  </executable>
+</executables>

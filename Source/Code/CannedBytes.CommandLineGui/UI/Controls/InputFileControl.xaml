@@ -1,0 +1,39 @@
+﻿<ctrl:GuiControl x:Class="CannedBytes.CommandLineGui.UI.Controls.InputFileControl" x:ClassModifier="internal"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:ctrl="clr-namespace:CannedBytes.CommandLineGui.UI.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="30" d:DesignWidth="200"
+             ToolTip="{Binding Description, Mode=OneTime}">
+
+    <Grid Name="LayoutGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Label Name="InputFileLabel" Content="{Binding Path=Name, Mode=OneTime}"/>
+
+        <Image Name="ValidationImage" HorizontalAlignment="Right"
+               Validation.ValidationAdornerSiteFor="{Binding ElementName=InputFilePath}"
+               Source="/CannedBytes.CommandLineGui;component/Resources/Alert.png"
+               Style="{StaticResource ValidationImage}">
+        </Image>
+
+        <TextBox Name="InputFilePath" Grid.Column="1" TextChanged="InputFilePath_TextChanged">
+            <TextBox.Text>
+                <Binding Path="Value.Value" Mode="TwoWay" UpdateSourceTrigger="PropertyChanged" />
+            </TextBox.Text>
+        </TextBox>
+
+        <Button Grid.Column="2" Click="Button_Click" ToolTip="Browse to an input file.">
+            <Image Source="/CannedBytes.CommandLineGui;component/Resources/Export File.png" />
+        </Button>
+    </Grid>
+</ctrl:GuiControl>

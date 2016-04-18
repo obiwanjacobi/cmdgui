@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Config/v1">
+  <executable name="ManyRootGroupsTest" location="D:\blablabal">
+    <arguments>
+      <argument name="arg1" multiplicity="ZeroOrMore" format="/o"/>
+    </arguments>
+    <gui name="ManyRootGroups Gui">
+      <bindingGroup name="Group1">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group2">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group3">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group4">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group5">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group6">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group7">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group8">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group9">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group10">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group11">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group12">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group13">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group14">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group15">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group16">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group17">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group18">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group19">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+
+      <bindingGroup name="Group20">
+        <binding name="Arg">
+          <control type="Check"/>
+          <bindTo argument="arg1"/>
+        </binding>
+      </bindingGroup>
+    </gui>
+  </executable>
+</executables>
