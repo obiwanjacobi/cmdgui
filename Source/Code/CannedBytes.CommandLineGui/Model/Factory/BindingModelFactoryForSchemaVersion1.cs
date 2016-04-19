@@ -205,7 +205,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
                 var singleValueBindingModel = CreateSingleValueBindingModel(binding, arg, argEntity, index);
 
                 if (singleValueBindingModel.Value != null &&
-                    !string.IsNullOrEmpty(singleValueBindingModel.Value.DisplayValue))
+                    !String.IsNullOrEmpty(singleValueBindingModel.Value.DisplayValue))
                 {
                     // Nice for presentation of multiple values
                     singleValueBindingModel.Name = singleValueBindingModel.Value.DisplayValue;
@@ -371,7 +371,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
 
             var mask = valueBindingModel.Control.Properties.Mask();
 
-            if (!string.IsNullOrWhiteSpace(mask))
+            if (!String.IsNullOrWhiteSpace(mask))
             {
                 switch (valueBindingModel.Control.Type)
                 {
@@ -398,7 +398,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
             var min = valueBindingModel.Control.Properties.MinValue();
             var max = valueBindingModel.Control.Properties.MaxValue();
 
-            if (!string.IsNullOrWhiteSpace(min) || !string.IsNullOrWhiteSpace(max))
+            if (!String.IsNullOrWhiteSpace(min) || !String.IsNullOrWhiteSpace(max))
             {
                 switch (valueBindingModel.Control.Type)
                 {

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -126,7 +127,7 @@ namespace CannedBytes.CommandLineGui
 
             if (guiDocument != null)
             {
-                if (!string.IsNullOrEmpty(reader.GuiFileDocument.ToolDefinition.Location))
+                if (!String.IsNullOrEmpty(reader.GuiFileDocument.ToolDefinition.Location))
                 {
                     // set customized tool location
                     guiDocument.ToolInfo.ToolExecutablePath = reader.GuiFileDocument.ToolDefinition.Location;
@@ -165,7 +166,7 @@ namespace CannedBytes.CommandLineGui
         public static void Save(GuiDocument guiDocument)
         {
             if (guiDocument == null) return;
-            if (string.IsNullOrEmpty(guiDocument.DocumentFilePath)) return;
+            if (String.IsNullOrEmpty(guiDocument.DocumentFilePath)) return;
 
             using (var fileStream = File.OpenWrite(guiDocument.DocumentFilePath))
             {

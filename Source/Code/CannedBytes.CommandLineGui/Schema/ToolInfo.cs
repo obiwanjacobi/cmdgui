@@ -12,7 +12,7 @@ namespace CannedBytes.CommandLineGui.Schema
         {
             Tool = tool;
 
-            if (!string.IsNullOrEmpty(tool.Location))
+            if (!String.IsNullOrEmpty(tool.Location))
             {
                 _expandedPath = Environment.ExpandEnvironmentVariables(tool.Location);
                 ToolExecutablePath = _expandedPath;
@@ -51,7 +51,7 @@ namespace CannedBytes.CommandLineGui.Schema
         {
             get
             {
-                if (string.IsNullOrEmpty(Tool.Location))
+                if (String.IsNullOrEmpty(Tool.Location))
                 {
                     return (ToolExecutablePath != Tool.Location);
                 }

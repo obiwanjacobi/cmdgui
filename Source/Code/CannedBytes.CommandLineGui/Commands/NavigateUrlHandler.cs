@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 namespace CannedBytes.CommandLineGui.Commands
 {
@@ -19,11 +20,11 @@ namespace CannedBytes.CommandLineGui.Commands
             {
                 if (parameter != null && parameter is string)
                 {
-                    return !string.IsNullOrEmpty((string)parameter);
+                    return !String.IsNullOrEmpty((string)parameter);
                 }
 
                 return (_pageMgr.ActiveDocument != null &&
-                    !string.IsNullOrEmpty(_pageMgr.ActiveDocument.ToolInfo.Tool.HelpUrl));
+                    !String.IsNullOrEmpty(_pageMgr.ActiveDocument.ToolInfo.Tool.HelpUrl));
             }
 
             return false;
@@ -44,7 +45,7 @@ namespace CannedBytes.CommandLineGui.Commands
                         url = _pageMgr.ActiveDocument.ToolInfo.Tool.HelpUrl;
                     }
 
-                    if (!string.IsNullOrEmpty(url))
+                    if (!String.IsNullOrEmpty(url))
                     {
                         Process.Start(url);
                     }

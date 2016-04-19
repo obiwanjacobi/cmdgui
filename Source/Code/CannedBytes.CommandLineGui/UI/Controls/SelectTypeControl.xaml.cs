@@ -29,7 +29,7 @@ namespace CannedBytes.CommandLineGui.UI.Controls
 
             var fm = new FileFilterManager();
             fm.AddParsed(mask);
-            fm.AddAssmbliesFilter();
+            fm.AddAssembliesFilter();
             fm.AddAllFilesFilter();
 
             var ofd = ControlFactory.CreateOpenFileDialog("Select an assembly file.", fm.ToString());

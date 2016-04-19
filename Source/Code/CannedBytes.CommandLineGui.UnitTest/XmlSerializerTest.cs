@@ -1,5 +1,5 @@
 ﻿using System.IO;
-using CannedBytes.CommandLineGui.Configuration.Version1;
+using CannedBytes.CommandLineGui.Schema.Version1;
 using CannedBytes.CommandLineGui.Persistence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

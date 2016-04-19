@@ -1,4 +1,5 @@
-﻿using CannedBytes.CommandLineGui.Persistence;
+﻿using System;
+using CannedBytes.CommandLineGui.Persistence;
 using CannedBytes.CommandLineGui.UI;
 
 namespace CannedBytes.CommandLineGui.Commands
@@ -19,7 +20,7 @@ namespace CannedBytes.CommandLineGui.Commands
             if (base.CanExecute(parameter))
             {
                 return (_pageMgr.ActiveDocument != null &&
-                    !string.IsNullOrEmpty(_pageMgr.ActiveDocument.DocumentFilePath));
+                    !String.IsNullOrEmpty(_pageMgr.ActiveDocument.DocumentFilePath));
             }
 
             return false;
@@ -31,7 +32,7 @@ namespace CannedBytes.CommandLineGui.Commands
                 {
                     if (_pageMgr.ActiveDocument != null)
                     {
-                        if (string.IsNullOrEmpty(_pageMgr.ActiveDocument.DocumentFilePath))
+                        if (String.IsNullOrEmpty(_pageMgr.ActiveDocument.DocumentFilePath))
                         {
                             var fm = new FileFilterManager();
                             fm.AddCommandLineGuiFilter();

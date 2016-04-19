@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using CannedBytes.CommandLineGui.Schema;
 using CannedBytes.CommandLineGui.UI;
 
@@ -47,7 +48,7 @@ namespace CannedBytes.CommandLineGui.Commands
         internal static void StartConsole(ToolInfo toolInfo, string command)
         {
             if (toolInfo == null) return;
-            if (string.IsNullOrEmpty(command)) return;
+            if (String.IsNullOrEmpty(command)) return;
 
             if (!File.Exists(toolInfo.ToolExecutablePath))
             {

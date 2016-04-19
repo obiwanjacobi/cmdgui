@@ -1,4 +1,6 @@
-﻿namespace CannedBytes.CommandLineGui.Commands
+﻿using System;
+
+namespace CannedBytes.CommandLineGui.Commands
 {
     class ToolHelpHandler : CommandHandler
     {
@@ -20,11 +22,11 @@
                 {
                     if (parameter != null && parameter is string)
                     {
-                        return !string.IsNullOrEmpty((string)parameter);
+                        return !String.IsNullOrEmpty((string)parameter);
                     }
                     else
                     {
-                        return !string.IsNullOrEmpty(_pageMgr.ActiveDocument.ToolInfo.Tool.HelpCmd);
+                        return !String.IsNullOrEmpty(_pageMgr.ActiveDocument.ToolInfo.Tool.HelpCmd);
                     }
                 }
             }

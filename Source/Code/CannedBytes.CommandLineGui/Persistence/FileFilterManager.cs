@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace CannedBytes.CommandLineGui.Persistence
@@ -16,7 +17,7 @@ namespace CannedBytes.CommandLineGui.Persistence
 
         public void AddParsed(string filterString)
         {
-            if (string.IsNullOrEmpty(filterString)) return;
+            if (String.IsNullOrEmpty(filterString)) return;
 
             var parts = filterString.Split('|');
 
@@ -26,7 +27,7 @@ namespace CannedBytes.CommandLineGui.Persistence
             }
         }
 
-        public void AddAssmbliesFilter()
+        public void AddAssembliesFilter()
         {
             Add("*.dll;*.exe", "Assembly Files (*.dll, *.exe)");
         }
@@ -97,7 +98,7 @@ namespace CannedBytes.CommandLineGui.Persistence
         {
             var description = Description;
 
-            if (string.IsNullOrEmpty(description))
+            if (String.IsNullOrEmpty(description))
             {
                 int index = Filter.IndexOf('.');
 

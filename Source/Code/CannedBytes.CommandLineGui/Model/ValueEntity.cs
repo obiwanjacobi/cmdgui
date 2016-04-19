@@ -51,7 +51,7 @@ namespace CannedBytes.CommandLineGui.Model
                     return IsSelected.Value;
                 }
 
-                return !string.IsNullOrEmpty(Value);
+                return !String.IsNullOrEmpty(Value);
             }
         }
 
@@ -69,12 +69,12 @@ namespace CannedBytes.CommandLineGui.Model
         /// <returns>Returns null when both <see cref="DisplayValue"/> and <see cref="Value"/> are null.</returns>
         public override string ToString()
         {
-            if (!string.IsNullOrEmpty(Value))
+            if (!String.IsNullOrEmpty(Value))
             {
                 return Value;
             }
 
-            if (!string.IsNullOrEmpty(DisplayValue))
+            if (!String.IsNullOrEmpty(DisplayValue))
             {
                 return DisplayValue;
             }
@@ -132,7 +132,7 @@ namespace CannedBytes.CommandLineGui.Model
         {
             var val = new ValueEntity();
 
-            if (string.IsNullOrEmpty(key))
+            if (String.IsNullOrEmpty(key))
             {
                 val.DisplayValue = value;
                 val.Value = value;
