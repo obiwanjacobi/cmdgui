@@ -17,7 +17,7 @@ namespace CannedBytes.CommandLineGui.Schema
 
         public List<GuiSchema> GuiSchemas { get; private set; }
 
-        public void Initialize(string basePath)
+        public void AddSchemas(string basePath)
         {
             var files = Directory.GetFiles(basePath, "*.gui", SearchOption.AllDirectories);
 
@@ -39,7 +39,7 @@ namespace CannedBytes.CommandLineGui.Schema
                     // this code executes at app startup
                     // missing some schema files is no big deal.
 
-                    Trace.WriteLine(string.Format("The file '{0}' could not be loaded.\nAn error occurred during loading: {1}", file, e.ToString()), "GuiDefinition");
+                    Trace.WriteLine(String.Format("The file '{0}' could not be loaded.\nAn error occurred during loading: {1}", file, e.ToString()), "GuiDefinition");
                 }
             }
         }

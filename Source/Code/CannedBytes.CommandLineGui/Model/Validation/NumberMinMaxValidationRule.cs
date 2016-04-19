@@ -1,8 +1,9 @@
-﻿using System.Windows.Controls;
+﻿using System;
+using System.Windows.Controls;
 
 namespace CannedBytes.CommandLineGui.Model.Validation
 {
-    class NumberMinMacValidationRule : ValidationRule
+    class NumberMinMaxValidationRule : ValidationRule
     {
         public override ValidationResult Validate(object value, System.Globalization.CultureInfo cultureInfo)
         {
@@ -13,7 +14,7 @@ namespace CannedBytes.CommandLineGui.Model.Validation
                 if (value is string)
                 {
                     double tempValue;
-                    if (!double.TryParse((string)value, out tempValue))
+                    if (!Double.TryParse((string)value, out tempValue))
                     {
                         return new ValidationResult(false, "Field value is not an integer.");
                     }
@@ -47,19 +48,19 @@ namespace CannedBytes.CommandLineGui.Model.Validation
 
         public double? Max { get; set; }
 
-        public static NumberMinMacValidationRule Create(string min, string max)
+        public static NumberMinMaxValidationRule Create(string min, string max)
         {
-            var rule = new NumberMinMacValidationRule();
+            var rule = new NumberMinMaxValidationRule();
 
             double minValue;
             double maxValue;
 
-            if (double.TryParse(min, out minValue))
+            if (Double.TryParse(min, out minValue))
             {
                 rule.Min = minValue;
             }
 
-            if (double.TryParse(max, out maxValue))
+            if (Double.TryParse(max, out maxValue))
             {
                 rule.Max = maxValue;
             }

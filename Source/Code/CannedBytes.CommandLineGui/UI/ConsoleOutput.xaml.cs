@@ -23,7 +23,7 @@ namespace CannedBytes.CommandLineGui.UI
         {
             if (isError)
             {
-                if (text == string.Empty)
+                if (text == String.Empty)
                 {
                     this.ErrorText.Text += Environment.NewLine;
                 }
@@ -34,7 +34,7 @@ namespace CannedBytes.CommandLineGui.UI
             }
             else
             {
-                if (text == string.Empty)
+                if (text == String.Empty)
                 {
                     this.OutputText.Text += Environment.NewLine;
                 }

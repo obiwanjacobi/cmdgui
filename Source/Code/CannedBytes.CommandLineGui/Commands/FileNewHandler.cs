@@ -48,21 +48,6 @@ namespace CannedBytes.CommandLineGui.Commands
                             _pageMgr.ActiveDocument = _pageMgr.AddDocument(selected.Schema, selected.Executable);
                         }
                     }
-
-                    //var fm = new FileFilterManager();
-                    //fm.AddGuiSchemaFilter();
-                    //fm.AddAllFilesFilter();
-
-                    //var ofd = ControlFactory.CreateOpenFileDialog(
-                    //    "Select a Command-Line Gui definition file.",
-                    //    fm.ToString());
-
-                    //if (ofd.ShowDialog(new Win32Window(App.Current.MainWindow)) == System.Windows.Forms.DialogResult.OK)
-                    //{
-                    //    int index = _pageMgr.NewAll(ofd.FileName);
-
-                    //    _pageMgr.ActiveDocument = _pageMgr.Documents[index];
-                    //}
                 });
 
             return base.Execute(parameter);

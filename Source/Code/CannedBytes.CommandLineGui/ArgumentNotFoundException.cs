@@ -17,7 +17,7 @@ namespace CannedBytes.CommandLineGui
 
         private static string BuildExceptionMessage(string bindingName, string argumentName)
         {
-            return string.Format("Binding '{0}' refers to an argument '{1}' that can not be found.", bindingName, argumentName);
+            return String.Format("Binding '{0}' refers to an argument '{1}' that can not be found.", bindingName, argumentName);
         }
     }
 }

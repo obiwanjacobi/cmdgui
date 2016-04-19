@@ -315,7 +315,6 @@ namespace CannedBytes.CommandLineGui.Model.Factory
             var val = new ValueEntity(bindingValue.Value, bindingValue.Key);
 
             val.Properties = bindingValue.PropertyBag;
-
             val.IsSelected = val.Properties.Selected();
 
             return val;
@@ -388,7 +387,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
                         break;
 
                     default:
-                        Trace.WriteLine(string.Format(
+                        Trace.WriteLine(String.Format(
                             "No validation rule was applied to '{0}' for the mask attribute '{1}'.",
                             valueBindingModel.Name, mask), "ValidationRules");
                         break;
@@ -411,7 +410,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
                         break;
 
                     case ControlTypes.Number:
-                        var nmbRule = NumberMinMacValidationRule.Create(min, max);
+                        var nmbRule = NumberMinMaxValidationRule.Create(min, max);
                         if (nmbRule != null)
                         {
                             rules.Add(nmbRule);
@@ -432,7 +431,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
                         break;
 
                     default:
-                        Trace.WriteLine(string.Format(
+                        Trace.WriteLine(String.Format(
                             "No validation rule was applied to '{0}' for the min ('{1}') and max ('{2}') attributes.",
                             valueBindingModel.Name, min, max), "ValidationRules");
                         break;

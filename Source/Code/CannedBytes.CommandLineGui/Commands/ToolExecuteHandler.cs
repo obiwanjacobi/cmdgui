@@ -53,7 +53,7 @@ namespace CannedBytes.CommandLineGui.Commands
             if (!File.Exists(toolInfo.ToolExecutablePath))
             {
                 throw new FileNotFoundException(
-                    string.Format("Tool executable file '{0}' can not be found.", toolInfo.ToolExecutablePath),
+                    String.Format("Tool executable file '{0}' can not be found.", toolInfo.ToolExecutablePath),
                     toolInfo.ToolExecutablePath);
             }
 

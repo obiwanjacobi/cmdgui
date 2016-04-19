@@ -112,7 +112,7 @@ namespace CannedBytes.CommandLineGui.Persistence
                 }
             }
 
-            return string.Format("{0}{1}{2}", description, FileFilterManager.Separator, Filter);
+            return String.Format("{0}{1}{2}", description, FileFilterManager.Separator, Filter);
         }
     }
 }

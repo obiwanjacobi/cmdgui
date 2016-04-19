@@ -1,12 +1,14 @@
-﻿using System;
+﻿using CannedBytes.CommandLineGui.Model.Factory;
+using CannedBytes.CommandLineGui.Persistence;
+using CannedBytes.CommandLineGui.Properties;
+using CannedBytes.CommandLineGui.Schema;
+using CannedBytes.CommandLineGui.Schema.Version1;
+using System;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using CannedBytes.CommandLineGui.Model.Factory;
-using CannedBytes.CommandLineGui.Persistence;
-using CannedBytes.CommandLineGui.Schema;
-using CannedBytes.CommandLineGui.Schema.Version1;
 
 namespace CannedBytes.CommandLineGui
 {
@@ -24,13 +26,34 @@ namespace CannedBytes.CommandLineGui
         {
             Documents = new ObservableCollection<GuiDocument>();
 
-            var entry = Assembly.GetEntryAssembly();
-            var path = Path.GetDirectoryName(entry.Location);
-            path = Path.Combine(path, "GuiDefinitions");
+            InitializeSchemas();
+        }
 
-            if (Directory.Exists(path))
+        private void InitializeSchemas()
+        {
+            if (Settings.Default.UserGuiDefinitionPaths != null &&
+                Settings.Default.UserGuiDefinitionPaths.Count > 0)
             {
-                _schemaMgr.Initialize(path);
+                foreach (var path in Settings.Default.UserGuiDefinitionPaths)
+                {
+                    _schemaMgr.AddSchemas(path);
+                }
+            }
+            else
+            {
+                var entry = Assembly.GetEntryAssembly();
+                var path = Path.GetDirectoryName(entry.Location);
+
+                path = Path.Combine(path, "GuiDefinitions");
+
+                if (Directory.Exists(path))
+                {
+                    _schemaMgr.AddSchemas(path);
+                }
+                else
+                {
+                    Trace.WriteLine("No .gui schema files were loaded.");
+                }
             }
         }
 
@@ -119,7 +142,7 @@ namespace CannedBytes.CommandLineGui
                 if (guiDocument == null)
                 {
                     throw new InvalidDataException(
-                        string.Format("The Gui Definition file '{0}' does not contain a definition for executable '{1}'.",
+                        String.Format("The Gui Definition file '{0}' does not contain a definition for executable '{1}'.",
                             reader.GuiFileDocument.ToolDefinition.GuiSchemaRef,
                             reader.GuiFileDocument.ToolDefinition.Name));
                 }
