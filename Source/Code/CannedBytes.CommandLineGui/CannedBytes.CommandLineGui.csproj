@@ -455,7 +455,8 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if $(ConfigurationName) == Release "D:\Program Files (x86)\Eziriz\.NET Reactor\dotNET_Reactor.Console.exe" -file "D:\Projects\Personal\CannedBytes\Source\CannedBytes.CommandLineGui\CannedBytes.CommandLineGui\bin\Release\CannedBytes.CommandLineGui.exe" -snkeypair "D:\Projects\Personal\CannedBytes\_keyfile\CannedBytes.snk" -mapping_file 1</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
