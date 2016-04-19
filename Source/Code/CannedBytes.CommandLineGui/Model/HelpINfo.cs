@@ -1,4 +1,6 @@
-﻿namespace CannedBytes.CommandLineGui.Model
+﻿using System;
+
+namespace CannedBytes.CommandLineGui.Model
 {
     class HelpInfo
     {
@@ -7,8 +9,8 @@
             this.HelpCmd = helpCmd;
             this.HelpUrl = helpUrl;
 
-            IsHelpCmdEmpty = string.IsNullOrEmpty(helpCmd);
-            IsHelpUrlEmpty = string.IsNullOrEmpty(helpUrl);
+            IsHelpCmdEmpty = String.IsNullOrEmpty(helpCmd);
+            IsHelpUrlEmpty = String.IsNullOrEmpty(helpUrl);
             IsEmpty = (IsHelpCmdEmpty && IsHelpUrlEmpty);
         }
 

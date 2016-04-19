@@ -15,7 +15,7 @@ namespace CannedBytes.CommandLineGui.Model.Validation
                 var str = value as string;
 
                 if (str != null &&
-                    !string.IsNullOrWhiteSpace(str))
+                    !String.IsNullOrWhiteSpace(str))
                 {
                     isValid = true;
                 }

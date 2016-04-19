@@ -1,6 +1,7 @@
-﻿using CannedBytes.CommandLineGui.Configuration.Version1;
+﻿using CannedBytes.CommandLineGui.Schema.Version1;
 using CannedBytes.CommandLineGui.Persistence;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CannedBytes.CommandLineGui.Model.Factory;
 
 namespace CannedBytes.CommandLineGui.UnitTest
 {

@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Windows.Controls;
 
@@ -10,7 +11,7 @@ namespace CannedBytes.CommandLineGui.Model.Validation
 
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            if (!string.IsNullOrEmpty(Regex))
+            if (!String.IsNullOrEmpty(Regex))
             {
                 if (this.regex == null)
                 {

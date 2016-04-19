@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.IO;
 using System.Windows.Controls;
 
@@ -13,7 +14,7 @@ namespace CannedBytes.CommandLineGui.Model.Validation
                 var str = value as string;
 
                 if (str != null &&
-                    !string.IsNullOrWhiteSpace(str) &&
+                    !String.IsNullOrWhiteSpace(str) &&
                     !Directory.Exists(str))
                 {
                     return new ValidationResult(false, "The directory does not exist.");

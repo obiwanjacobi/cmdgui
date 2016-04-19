@@ -1,4 +1,5 @@
 ﻿using CannedBytes.CommandLineGui.Model;
+using System;
 
 namespace CannedBytes.CommandLineGui.UI.Controls
 {
@@ -25,7 +26,7 @@ namespace CannedBytes.CommandLineGui.UI.Controls
                 if (bindingModel != null)
                 {
                     // if there is no custom display value, show the description of the argument.
-                    if (string.IsNullOrEmpty(bindingModel.Value.DisplayValue))
+                    if (String.IsNullOrEmpty(bindingModel.Value.DisplayValue))
                     {
                         bindingModel.Value.DisplayValue = bindingModel.Description;
                     }

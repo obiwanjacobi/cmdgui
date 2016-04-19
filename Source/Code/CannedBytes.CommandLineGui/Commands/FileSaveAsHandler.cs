@@ -34,7 +34,7 @@ namespace CannedBytes.CommandLineGui.Commands
                         pm.FileTypeProviders.Add(new CommandLineGuiFileTypeProvider());
                         pm.FileTypeProviders.Add(new BatchFileTypeProvider());
 
-                        var sfd = ControlFactory.CreateSaveFileDialog("Select a Gui Command Line file name", pm.GetFileFilter(false));
+                        var sfd = ControlFactory.CreateSaveFileDialog("Select a Command Line Gui file name", pm.GetFileFilter(false));
 
                         if (sfd.ShowDialog(new Win32Window(App.Current.MainWindow)) == System.Windows.Forms.DialogResult.OK)
                         {
