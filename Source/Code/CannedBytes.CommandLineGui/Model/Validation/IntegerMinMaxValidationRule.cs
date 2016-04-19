@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows.Controls;
 
 namespace CannedBytes.CommandLineGui.Model.Validation
@@ -14,7 +15,7 @@ namespace CannedBytes.CommandLineGui.Model.Validation
                 if (value is string)
                 {
                     int tempValue;
-                    if (!int.TryParse((string)value, out tempValue))
+                    if (!Int32.TryParse((string)value, out tempValue))
                     {
                         return new ValidationResult(false, "Field value is not an integer.");
                     }
@@ -55,12 +56,12 @@ namespace CannedBytes.CommandLineGui.Model.Validation
             int minValue;
             int maxValue;
 
-            if (int.TryParse(min, out minValue))
+            if (Int32.TryParse(min, out minValue))
             {
                 rule.Min = minValue;
             }
 
-            if (int.TryParse(max, out maxValue))
+            if (Int32.TryParse(max, out maxValue))
             {
                 rule.Max = maxValue;
             }

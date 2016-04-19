@@ -61,7 +61,7 @@ namespace CannedBytes.CommandLineGui.UI
             {
                 bool value;
 
-                if (bool.TryParse((string)parameter, out value))
+                if (Boolean.TryParse((string)parameter, out value))
                 {
                     return value;
                 }

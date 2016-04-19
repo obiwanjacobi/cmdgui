@@ -93,12 +93,12 @@ namespace CannedBytes.CommandLineGui.Persistence
             catch (XmlException xe)
             {
                 throw new InvalidDataException(
-                    string.Format("The file '{0}' was not in the correct format.", filePath), xe);
+                    String.Format("The file '{0}' was not in the correct format.", filePath), xe);
             }
             catch (InvalidDataException ide)
             {
                 throw new InvalidDataException(
-                    string.Format("The file '{0}' was not in the correct format.", filePath), ide);
+                    String.Format("The file '{0}' was not in the correct format.", filePath), ide);
             }
         }
 

@@ -25,7 +25,7 @@
             <Image Source="/CannedBytes.CommandLineGui;component/Resources/Export File.png" />
         </Button>
 
-        <RadioButton Name="LoadedSchemaOption" Content="Loaded Schemas" Grid.Row="1"/>
+        <RadioButton Name="LoadedSchemaOption" Content="Loaded Schemas" VerticalAlignment="Top" Grid.Row="1"/>
         <ListBox Grid.Column="1" Grid.Row="1"
                  ItemsSource="{Binding Path=ExecutableNames, Mode=OneTime}"
                  SelectedItem="{Binding Path=Selected, Mode=TwoWay}"

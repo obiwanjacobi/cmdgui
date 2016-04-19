@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace CannedBytes.CommandLineGui.Model.Factory
@@ -21,7 +22,7 @@ namespace CannedBytes.CommandLineGui.Model.Factory
 
             bool boolValue;
 
-            if (bool.TryParse(selected, out boolValue))
+            if (Boolean.TryParse(selected, out boolValue))
             {
                 return boolValue;
             }

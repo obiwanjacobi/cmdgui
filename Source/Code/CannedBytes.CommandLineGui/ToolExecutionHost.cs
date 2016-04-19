@@ -33,7 +33,7 @@ namespace CannedBytes.CommandLineGui
             _process.Exited += new System.EventHandler(Process_Exited);
 
             _output.Write(executable + " " + commandline, false);
-            _output.Write(string.Empty, false);
+            _output.Write(String.Empty, false);
 
             if (_process.Start())
             {
@@ -68,7 +68,7 @@ namespace CannedBytes.CommandLineGui
 
             if (exitCode != null)
             {
-                msg = string.Format("{0}{1} ({2})", msg, exitCode.Description, code);
+                msg = String.Format("{0}{1} ({2})", msg, exitCode.Description, code);
             }
             else
             {
@@ -80,7 +80,7 @@ namespace CannedBytes.CommandLineGui
 
         void Process_Exited(object sender, System.EventArgs e)
         {
-            _output.Write(string.Empty, false);
+            _output.Write(String.Empty, false);
 
             _output.Write(GetExitCodeMessage(), false);
 

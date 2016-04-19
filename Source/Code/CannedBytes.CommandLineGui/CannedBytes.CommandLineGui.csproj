@@ -101,7 +101,7 @@
     <Compile Include="BindingModelNavigator.cs" />
     <Compile Include="CommandLineBuilder.cs" />
     <Compile Include="Model\Validation\IntegerMinMaxValidationRule.cs" />
-    <Compile Include="Model\Validation\NumberMinMacValidationRule.cs" />
+    <Compile Include="Model\Validation\NumberMinMaxValidationRule.cs" />
     <Compile Include="Model\Validation\RegexValidationRule.cs" />
     <Compile Include="Model\Validation\StringLengthValidationRule.cs" />
     <Compile Include="Model\Validation\UriValidationRule.cs" />
