@@ -106,6 +106,7 @@
     <Compile Include="Model\Validation\StringLengthValidationRule.cs" />
     <Compile Include="Model\Validation\UriValidationRule.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="ProgramArguments.cs" />
     <Compile Include="Schema\Version1\ConfigurationObject.cs" />
     <Compile Include="Model\Factory\ExtensionsForSchemaVersion1.cs" />
     <Compile Include="Model\HelpInfo.cs" />
