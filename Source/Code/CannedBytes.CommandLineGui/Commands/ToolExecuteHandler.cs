@@ -48,7 +48,7 @@ namespace CannedBytes.CommandLineGui.Commands
         internal static void StartConsole(ToolInfo toolInfo, string command)
         {
             if (toolInfo == null) return;
-            if (String.IsNullOrEmpty(command)) return;
+            //if (String.IsNullOrEmpty(command)) return;
 
             if (!File.Exists(toolInfo.ToolExecutablePath))
             {

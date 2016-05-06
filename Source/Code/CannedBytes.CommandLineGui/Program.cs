@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CannedBytes.CommandLineGui.UI;
+using System;
+using System.IO;
 using System.Windows;
 
 namespace CannedBytes.CommandLineGui
@@ -11,18 +13,19 @@ namespace CannedBytes.CommandLineGui
         [System.STAThreadAttribute()]
         public static void Main(string[] args)
         {
-            if (args != null && args.Length > 0)
+            var prgArgs = new ProgramArguments(args);
+
+            if (!prgArgs.IsEmpty && Path.GetExtension(prgArgs.FileName).ToLower() == ".clg")
             {
                 var program = new Program();
 
                 try
                 {
-                    program.ExecuteCommandLineArgs(args);
+                    program.ExecuteCommandLineArgs(prgArgs.FileName);
                 }
                 catch (Exception e)
                 {
                     Console.WriteLine(e.ToString());
-                    return;
                 }
 
                 return;
@@ -30,7 +33,7 @@ namespace CannedBytes.CommandLineGui
 
             try
             {
-                App app = new App();
+                var app = new App();
                 app.InitializeComponent();
                 app.Run();
             }
@@ -42,10 +45,10 @@ namespace CannedBytes.CommandLineGui
         }
 
         // currently only .clg files are silently executed.
-        private void ExecuteCommandLineArgs(string[] args)
+        private void ExecuteCommandLineArgs(string cmdArgFile)
         {
             var pageMgr = new GuiDocumentManager();
-            pageMgr.ActiveDocument = pageMgr.Open(args[0]);
+            pageMgr.ActiveDocument = pageMgr.Open(cmdArgFile);
 
             var cmdLineBuilder = new CommandLineBuilder(pageMgr.ActiveDocument.ToolInfo.Tool);
             string commandLine = cmdLineBuilder.Build(pageMgr.ActiveDocument.ToolBindingModel);

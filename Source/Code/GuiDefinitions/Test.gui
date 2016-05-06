@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <executables xmlns="http://schemas.cannedbytes.com/CommandLineGui/Schema/v1" fileVersion="1.0">
   <executable name="Echo" helpCmd="/?"
-    location="D:\Projects\Personal\CannedBytes\Source\CannedBytes.CommandLineGui\CannedBytes.EchoCommandLineConsole\bin\Release\CannedBytes.EchoCommandLineConsole.exe">
+    location="C:\Users\marc\Documents\Projects\Personal\CannedBytes\Public\Codeplex\Command Line Gui\Source\Code\CannedBytes.EchoCommandLineConsole\bin\Release\CannedBytes.EchoCommandLineConsole.exe">
     <arguments>
       <argument name="bool" format="{0}" multiplicity="ExactlyOne" ordinal="2" description="Bool value"/>
       <argument name="integer" format="{0}" multiplicity="OneOrMore" ordinal="2" description="Integer value"/>

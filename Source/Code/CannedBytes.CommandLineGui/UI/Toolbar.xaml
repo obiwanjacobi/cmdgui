@@ -44,7 +44,7 @@
         </ui:DropDownButton>
         <ui:DropDownButton Grid.Column="2" ToolTip="Command Line Tool.">
             <ui:DropDownButton.Content>
-                <Image Source="/CannedBytes.CommandLineGui;component/Resources/Settings.png" />
+                <Image Source="/CannedBytes.CommandLineGui;component/Resources/Play.png" />
             </ui:DropDownButton.Content>
             <ui:DropDownButton.DropDown>
                 <ContextMenu>

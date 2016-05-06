@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using CannedBytes.CommandLineGui.Commands;
+using System;
 
 namespace CannedBytes.CommandLineGui.UI
 {
@@ -28,6 +29,26 @@ namespace CannedBytes.CommandLineGui.UI
             this.CommandBindings.Add(new NavigateUrlHandler(_pageMgr).ToCommandBinding());
 
             DataContext = _pageMgr;
+
+            InitProgramArgs();
+        }
+
+        private void InitProgramArgs()
+        {
+            try
+            {
+                var prgArgs = new ProgramArguments();
+                if (!prgArgs.IsEmpty)
+                {
+                    var index = _pageMgr.NewAll(prgArgs.FileName);
+                    _pageMgr.ActiveDocument = _pageMgr.Documents[index];
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message, "Command Line Error",
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

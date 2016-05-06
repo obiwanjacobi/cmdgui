@@ -14,6 +14,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.CommandLineGui.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CannedBytes.EchoCommandLineConsole", "CannedBytes.EchoCommandLineConsole\CannedBytes.EchoCommandLineConsole.csproj", "{F7DE882D-FE5A-4A23-B442-653D954A40DE}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gui Definitions", "Gui Definitions", "{F359B105-0BA5-4DCB-B12E-838225CD0E14}"
+	ProjectSection(SolutionItems) = preProject
+		GuiDefinitions\Windows\robocopy.exe.gui = GuiDefinitions\Windows\robocopy.exe.gui
+		GuiDefinitions\VS2010\svcutil.exe.gui = GuiDefinitions\VS2010\svcutil.exe.gui
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
